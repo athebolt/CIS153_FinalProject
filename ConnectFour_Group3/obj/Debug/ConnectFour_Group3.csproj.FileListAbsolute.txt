@@ -1,0 +1,9 @@
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\bin\Debug\ConnectFour_Group3.exe.config
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\bin\Debug\ConnectFour_Group3.exe
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\bin\Debug\ConnectFour_Group3.pdb
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\obj\Debug\ConnectFour_Group3.csproj.AssemblyReference.cache
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\obj\Debug\ConnectFour_Group3.Properties.Resources.resources
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\obj\Debug\ConnectFour_Group3.csproj.GenerateResource.cache
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\obj\Debug\ConnectFour_Group3.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\obj\Debug\ConnectFour_Group3.exe
+C:\Users\Nick\Documents\College\GitHub\CIS153\CIS153_FinalProject\ConnectFour_Group3\obj\Debug\ConnectFour_Group3.pdb
