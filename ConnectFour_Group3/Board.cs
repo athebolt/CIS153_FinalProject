@@ -52,7 +52,7 @@ namespace ConnectFour_Group3
             bool moveComplete = false;
             for (int i = board.GetLength(0) - 1; i >= 0; i--)
             {
-                if (board[i, col].getVal() == ' ')
+                if (board[i, col].isEmpty())
                 {
                     moveComplete = true;
                     board[i, col].setVal(isPlayerMove ? 'X' : 'O');
