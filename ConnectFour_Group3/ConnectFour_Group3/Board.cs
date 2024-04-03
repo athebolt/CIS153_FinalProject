@@ -103,6 +103,23 @@ namespace ConnectFour_Group3
             }
         }
 
+        public void setCell(int x, int y, Cell val)
+        {
+            board[x, y] = val;
+        }
+
+        public void removeCell(int col)
+        {
+            for (int i = 0; i <= board.GetLength(0); i++)
+            {
+                if (!board[i, col].isEmpty())
+                {
+                    board[i, col].setVal(' ');
+                    break;
+                }
+            }
+        }
+
         #endregion
 
         #region Getters
@@ -115,6 +132,16 @@ namespace ConnectFour_Group3
         public Cell getCell(int x, int y)
         {
             return board[y, x];
+        }
+
+        public int getRows()
+        {
+            return board.GetLength(0);
+        }
+
+        public int getCols()
+        {
+            return board.GetLength(1);
         }
 
         #endregion
