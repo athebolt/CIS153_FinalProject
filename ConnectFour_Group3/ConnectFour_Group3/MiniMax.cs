@@ -37,22 +37,23 @@ namespace ConnectFour_Group3
             //cycle through each playable spot on the board
             for (int c = 0; c <= board.getCols() - 1; c++)
             {
-                //place a piece on the board
-                copy.makeMove(c);
-
-                //run algorithm
-                int score = miniMax(copy, 0, false);
-
-                //keeps track of the best possible place to place a piece
-                if (score > bestScore)
+                //if you can make a move in this column, make it
+                if(copy.makeMove(c))
                 {
-                    bestScore = score;
+                    //run algorithm
+                    int score = miniMax(copy, 0, false);
 
-                    bestMove = c;
+                    //keeps track of the best possible place to place a piece
+                    if (score > bestScore)
+                    {
+                        bestScore = score;
+
+                        bestMove = c;
+                    }
+
+                    //remove the piece from the board
+                    copy.removeCell(c);
                 }
-
-                //remove the piece from the board
-                copy.removeCell(c);
             }
 
             //make the best move
@@ -64,40 +65,59 @@ namespace ConnectFour_Group3
         {
             int bestScore;
 
+            //pseudocode for now (these functions may not exist)
             //check for a win or tie
+            //if(AIWon())
+            //{
+            ////subtracting the depth to make the soonest win the best score
+            //return 100 - depth;
+            //}
+            //else if(PlayerWon())
+            //{
+            ////adding depth this time because its the inverse (lowest score is the best in this case)
+            //return -100 + depth;
+            //}
+            //else if(Tie())
+            //{
+                //return 0;
+            //}
 
             //if AI turn
             if (isMax)
             {
+                //start with the lowest possible score since we are looking for the highest possible (maximizing)
                 bestScore = -999;
 
                 for (int c = 0; c <= copy.getCols() - 1; c++)
                 {
-                    copy.makeMove(c);
+                    if(copy.makeMove(c))
+                    {
+                        int score = miniMax(copy, depth + 1, false);
 
-                    int score = miniMax(copy, depth + 1, false);
+                        if (score > bestScore)
+                            bestScore = score;
 
-                    if(score > bestScore)
-                        bestScore = score;
-
-                    copy.removeCell(c);
+                        copy.removeCell(c);
+                    }
                 }
             }
             //else player turn
             else
             {
+                //start with the highest possible score since we are looking for the lowest possible (minimizing)
                 bestScore = 999;
 
                 for (int c = 0; c <= copy.getCols() - 1; c++)
                 {
-                    copy.makeMove(c);
+                    if(copy.makeMove(c))
+                    {
+                        int score = miniMax(copy, depth + 1, true);
 
-                    int score = miniMax(copy, depth + 1, true);
+                        if (score < bestScore)
+                            bestScore = score;
 
-                    if (score < bestScore)
-                        bestScore = score;
-
-                    copy.removeCell(c);
+                        copy.removeCell(c);
+                    }
                 }
             }
 
