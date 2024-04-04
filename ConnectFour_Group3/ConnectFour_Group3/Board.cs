@@ -103,14 +103,14 @@ namespace ConnectFour_Group3
             }
         }
 
-        public void setCell(int x, int y, Cell val)
+        public void setCell(int r, int c, Cell val)
         {
-            board[x, y] = val;
+            board[r, c] = val;
         }
 
         public void removeCell(int col)
         {
-            for (int i = 0; i <= board.GetLength(0); i++)
+            for (int i = 0; i < board.GetLength(0); i++)
             {
                 if (!board[i, col].isEmpty())
                 {
@@ -129,9 +129,9 @@ namespace ConnectFour_Group3
             return board;
         }
 
-        public Cell getCell(int x, int y)
+        public Cell getCell(int r, int c)
         {
-            return board[y, x];
+            return board[r, c];
         }
 
         public int getRows()

@@ -35,7 +35,7 @@ namespace ConnectFour_Group3
             }
 
             //cycle through each playable spot on the board
-            for (int c = 0; c <= board.getCols() - 1; c++)
+            for (int c = 0; c < board.getCols() - 1; c++)
             {
                 //if you can make a move in this column, make it
                 if(copy.makeMove(c))
@@ -88,7 +88,7 @@ namespace ConnectFour_Group3
                 //start with the lowest possible score since we are looking for the highest possible (maximizing)
                 bestScore = -999;
 
-                for (int c = 0; c <= copy.getCols() - 1; c++)
+                for (int c = 0; c < copy.getCols() - 1; c++)
                 {
                     if(copy.makeMove(c))
                     {
@@ -107,7 +107,7 @@ namespace ConnectFour_Group3
                 //start with the highest possible score since we are looking for the lowest possible (minimizing)
                 bestScore = 999;
 
-                for (int c = 0; c <= copy.getCols() - 1; c++)
+                for (int c = 0; c < copy.getCols() - 1; c++)
                 {
                     if(copy.makeMove(c))
                     {
