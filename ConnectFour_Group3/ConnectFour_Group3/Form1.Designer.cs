@@ -79,6 +79,7 @@
             this.box13 = new System.Windows.Forms.PictureBox();
             this.box12 = new System.Windows.Forms.PictureBox();
             this.box11 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.box66)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box65)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box67)).BeginInit();
@@ -531,11 +532,21 @@
             this.box11.TabIndex = 8;
             this.box11.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(209, 118);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 767);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.box66);
             this.Controls.Add(this.box65);
             this.Controls.Add(this.box67);
@@ -685,6 +696,7 @@
         private System.Windows.Forms.PictureBox box63;
         private System.Windows.Forms.PictureBox box62;
         private System.Windows.Forms.PictureBox box61;
+        private System.Windows.Forms.Button button1;
     }
 }
 
