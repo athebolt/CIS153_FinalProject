@@ -26,9 +26,9 @@ namespace ConnectFour_Group3
             //copy board
             Board copy = new Board(false);
 
-            for (int r = 0; r <= board.getRows() - 1; r++)
+            for (int r = 0; r < board.getRows() - 1; r++)
             {
-                for (int c = 0; c <= board.getCols(); c++)
+                for (int c = 0; c < board.getCols() - 1; c++)
                 {
                     copy.setCell(r, c, board.getCell(r,c));
                 }    
