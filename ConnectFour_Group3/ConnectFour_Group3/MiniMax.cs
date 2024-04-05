@@ -14,7 +14,7 @@ namespace ConnectFour_Group3
 
         //This variable here controls how many moves the AI can see into the future, I kept it at 5 because at any # higher, it starts to take a while.
         //=======================
-        private int maxDepth = 5;
+        private int depth = 6;
         //=======================
 
         //constructor
@@ -26,11 +26,9 @@ namespace ConnectFour_Group3
         //function to start the algorithm (makes the best move possible on the board)
         public void aiMakeMove(Board board)
         {
-            int bestScore = -999;
+            int bestScore = -1;
             int bestMove = 0;
             int score;
-
-            //copy board
             Board copy = board;
 
             //cycle through each playable spot on the board
@@ -39,14 +37,12 @@ namespace ConnectFour_Group3
                 //if you can make a move in this column, make it
                 if (copy.makeMove(c))
                 {
-                    //run algorithm
-                    score = miniMax(copy, 0, false);
+                    score = miniMax(copy, depth, false); //run algorithm
 
                     //keeps track of the best possible place to place a piece
                     if (score > bestScore)
                     {
                         bestScore = score;
-
                         bestMove = c;
                     }
 
@@ -55,8 +51,6 @@ namespace ConnectFour_Group3
                 }
             }
 
-            Console.WriteLine(bestScore);
-
             //make the best move
             board.makeMove(bestMove);
         }
@@ -64,63 +58,27 @@ namespace ConnectFour_Group3
         //the actual algorithm, very difficult to debug because it is a recursive function
         private int miniMax(Board copy, int depth, bool isMax)
         {
-            int bestScore = -999;
+            //check for a win or tie
             int whoWon = copy.checkWin();
-            int score;
 
-            //subtracting/adding the depth gives incentive for the AI to make the soonest win (lowest depth = highest score)
+            //return if there is a win or tie
             if(whoWon == -1)
-            {
-                return 1;
-            }
+                return depth;
             else if(whoWon == 1) 
-            {
-                return -1;
-            }
-            else if(whoWon == 0 || depth >= maxDepth)
-            {
+                return -depth;
+            else if(whoWon == 0 || depth <= 0)
                 return 0;
-            }
 
-            if (!isMax)
-                bestScore = 999;
+            int bestScore = isMax ? -1 : 1;
+            int score;
 
             for (int c = 0; c < copy.getCols(); c++)
             {
-                if (copy.makeMove(c))
+                if (copy.makeMove(c)) //make a move
                 {
-                    score = miniMax(copy, depth + 1, !isMax);
-
-                    if (isMax)
-                    {
-                        if (score > bestScore)
-                        {
-                            bestScore = score;
-
-                            if(bestScore == 1)
-                            {
-                                copy.removeCell(c);
-
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (score < bestScore)
-                        {
-                            bestScore = score;
-
-                            if(bestScore == -1)
-                            {
-                                copy.removeCell(c);
-
-                                break;
-                            }
-                        }
-                    }
-
-                    copy.removeCell(c);
+                    score = miniMax(copy, depth - 1, !isMax); //run alg to go deeper one move, pass board, subtract one move, flip player
+                    bestScore = isMax ? Math.Max(bestScore, score) : Math.Min(bestScore, score); //new best score? store it
+                    copy.removeCell(c); //remove said move
                 }
             }
 
