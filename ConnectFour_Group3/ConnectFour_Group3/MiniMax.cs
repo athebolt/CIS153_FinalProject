@@ -70,6 +70,8 @@ namespace ConnectFour_Group3
 
             Console.WriteLine("Algorithm Finished");
 
+            Console.WriteLine(bestScore);
+
             //make the best move
             board.makeMove(bestMove);
         }
@@ -80,11 +82,11 @@ namespace ConnectFour_Group3
             int bestScore;
             int whoWon = copy.checkWin();
 
-            if(whoWon == 1)
+            if(whoWon == -1)
             {
                 return 1;
             }
-            else if(whoWon == -1) 
+            else if(whoWon == 1) 
             {
                 return -1;
             }
@@ -131,8 +133,6 @@ namespace ConnectFour_Group3
                     }
                 }
             }
-
-            //Console.WriteLine(bestScore);
 
             return bestScore;
         }
