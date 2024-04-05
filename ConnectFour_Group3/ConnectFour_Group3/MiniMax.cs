@@ -33,17 +33,12 @@ namespace ConnectFour_Group3
             //copy board
             Board copy = board;
 
-            Console.WriteLine("Algorithm Started");
-
             //cycle through each playable spot on the board
             for (int c = 0; c < board.getCols(); c++)
             {
-                
-
                 //if you can make a move in this column, make it
-                if(copy.makeMove(c))
+                if (copy.makeMove(c))
                 {
-
                     //run algorithm
                     score = miniMax(copy, 0, false);
 
@@ -60,8 +55,6 @@ namespace ConnectFour_Group3
                 }
             }
 
-            Console.WriteLine("Algorithm Finished");
-
             Console.WriteLine(bestScore);
 
             //make the best move
@@ -71,59 +64,63 @@ namespace ConnectFour_Group3
         //the actual algorithm, very difficult to debug because it is a recursive function
         private int miniMax(Board copy, int depth, bool isMax)
         {
-            int bestScore;
+            int bestScore = -999;
             int whoWon = copy.checkWin();
+            int score;
 
             //subtracting/adding the depth gives incentive for the AI to make the soonest win (lowest depth = highest score)
             if(whoWon == -1)
             {
-                return 10 - depth;
+                return 1;
             }
             else if(whoWon == 1) 
             {
-                return -10 + depth;
+                return -1;
             }
             else if(whoWon == 0 || depth >= maxDepth)
             {
                 return 0;
             }
 
-            //if AI turn
-            if (isMax)
-            {
-                //start with the lowest possible score since we are looking for the highest possible (maximizing)
-                bestScore = -999;
-
-                for (int c = 0; c < copy.getCols(); c++)
-                {
-                    if(copy.makeMove(c))
-                    {
-                        int score = miniMax(copy, depth + 1, false);
-
-                        if (score > bestScore)
-                            bestScore = score;
-
-                        copy.removeCell(c);
-                    }
-                }
-            }
-            //else player turn
-            else
-            {
-                //start with the highest possible score since we are looking for the lowest possible (minimizing)
+            if (!isMax)
                 bestScore = 999;
 
-                for (int c = 0; c < copy.getCols(); c++)
+            for (int c = 0; c < copy.getCols(); c++)
+            {
+                if (copy.makeMove(c))
                 {
-                    if(copy.makeMove(c))
-                    {
-                        int score = miniMax(copy, depth + 1, true);
+                    score = miniMax(copy, depth + 1, !isMax);
 
-                        if (score < bestScore)
+                    if (isMax)
+                    {
+                        if (score > bestScore)
+                        {
                             bestScore = score;
 
-                        copy.removeCell(c);
+                            if(bestScore == 1)
+                            {
+                                copy.removeCell(c);
+
+                                break;
+                            }
+                        }
                     }
+                    else
+                    {
+                        if (score < bestScore)
+                        {
+                            bestScore = score;
+
+                            if(bestScore == -1)
+                            {
+                                copy.removeCell(c);
+
+                                break;
+                            }
+                        }
+                    }
+
+                    copy.removeCell(c);
                 }
             }
 
