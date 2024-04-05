@@ -12,7 +12,7 @@ namespace ConnectFour_Group3
         //TO USE - just call the aiMakeMove function and give it the connect 4 board
         //this will make the best move possible on the board (depending on maxDepth)
 
-        //This variable here controls how many moves the AI can see into the future, I kept it at 5 because at any # higher, it starts to take a while. maxDepth * 7 * 
+        //This variable here controls how many moves the AI can see into the future, I kept it at 5 because at any # higher, it starts to take a while.
         //=======================
         private int maxDepth = 5;
         //=======================
@@ -31,15 +31,7 @@ namespace ConnectFour_Group3
             int score;
 
             //copy board
-            Board copy = new Board(false);
-
-            for (int r = 0; r < board.getRows(); r++)
-            {
-                for (int c = 0; c < board.getCols(); c++)
-                {
-                    copy.setCell(r, c, board.getCell(r,c));
-                }    
-            }
+            Board copy = board;
 
             Console.WriteLine("Algorithm Started");
 
@@ -76,19 +68,20 @@ namespace ConnectFour_Group3
             board.makeMove(bestMove);
         }
 
-        //the actual algorithm, very difficult to decode because it is a recursive function
+        //the actual algorithm, very difficult to debug because it is a recursive function
         private int miniMax(Board copy, int depth, bool isMax)
         {
             int bestScore;
             int whoWon = copy.checkWin();
 
+            //subtracting/adding the depth gives incentive for the AI to make the soonest win (lowest depth = highest score)
             if(whoWon == -1)
             {
-                return 1;
+                return 10 - depth;
             }
             else if(whoWon == 1) 
             {
-                return -1;
+                return -10 + depth;
             }
             else if(whoWon == 0 || depth >= maxDepth)
             {
