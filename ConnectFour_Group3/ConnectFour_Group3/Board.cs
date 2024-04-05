@@ -17,14 +17,20 @@ namespace ConnectFour_Group3
 
         #region Constructors
 
-        //Upon creating a board, we set it up to fill every slot with a cell that knows
-        //it's location and its value (which, by default, is ' ')
+        /// <summary>
+        /// Creates a new empty board, with the player being the one that starts
+        /// </summary>
         public Board()
         {
             fillBoard();
-            isPlayerMove = true;
+            this.isPlayerMove = true;
+            this.playerStarts = true;
         }
 
+        /// <summary>
+        /// Creates a new empty board, with isPlayerMove deciding whether or not the player starts
+        /// </summary>
+        /// <param name="isPlayerMove">If true, the player starts; if false, the AI/second player starts</param>
         public Board(bool isPlayerMove)
         {
             fillBoard();
