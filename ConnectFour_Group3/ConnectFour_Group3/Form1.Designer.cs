@@ -130,8 +130,10 @@
             this.btnCol1.Name = "btnCol1";
             this.btnCol1.Size = new System.Drawing.Size(124, 37);
             this.btnCol1.TabIndex = 0;
+            this.btnCol1.Tag = "0";
             this.btnCol1.Text = "Column 1";
             this.btnCol1.UseVisualStyleBackColor = true;
+            this.btnCol1.Click += new System.EventHandler(this.playPiece);
             // 
             // btnCol2
             // 
@@ -139,8 +141,10 @@
             this.btnCol2.Name = "btnCol2";
             this.btnCol2.Size = new System.Drawing.Size(124, 37);
             this.btnCol2.TabIndex = 1;
+            this.btnCol2.Tag = "1";
             this.btnCol2.Text = "Column 2";
             this.btnCol2.UseVisualStyleBackColor = true;
+            this.btnCol2.Click += new System.EventHandler(this.playPiece);
             // 
             // btnCol3
             // 
@@ -148,8 +152,10 @@
             this.btnCol3.Name = "btnCol3";
             this.btnCol3.Size = new System.Drawing.Size(124, 37);
             this.btnCol3.TabIndex = 2;
+            this.btnCol3.Tag = "2";
             this.btnCol3.Text = "Column 3";
             this.btnCol3.UseVisualStyleBackColor = true;
+            this.btnCol3.Click += new System.EventHandler(this.playPiece);
             // 
             // btnCol4
             // 
@@ -157,8 +163,10 @@
             this.btnCol4.Name = "btnCol4";
             this.btnCol4.Size = new System.Drawing.Size(124, 37);
             this.btnCol4.TabIndex = 3;
+            this.btnCol4.Tag = "3";
             this.btnCol4.Text = "Column 4";
             this.btnCol4.UseVisualStyleBackColor = true;
+            this.btnCol4.Click += new System.EventHandler(this.playPiece);
             // 
             // btnCol5
             // 
@@ -166,8 +174,10 @@
             this.btnCol5.Name = "btnCol5";
             this.btnCol5.Size = new System.Drawing.Size(124, 37);
             this.btnCol5.TabIndex = 4;
+            this.btnCol5.Tag = "4";
             this.btnCol5.Text = "Column 5";
             this.btnCol5.UseVisualStyleBackColor = true;
+            this.btnCol5.Click += new System.EventHandler(this.playPiece);
             // 
             // btnCol6
             // 
@@ -175,8 +185,10 @@
             this.btnCol6.Name = "btnCol6";
             this.btnCol6.Size = new System.Drawing.Size(124, 37);
             this.btnCol6.TabIndex = 5;
+            this.btnCol6.Tag = "5";
             this.btnCol6.Text = "Column 6";
             this.btnCol6.UseVisualStyleBackColor = true;
+            this.btnCol6.Click += new System.EventHandler(this.playPiece);
             // 
             // btnCol7
             // 
@@ -184,8 +196,10 @@
             this.btnCol7.Name = "btnCol7";
             this.btnCol7.Size = new System.Drawing.Size(124, 37);
             this.btnCol7.TabIndex = 6;
+            this.btnCol7.Tag = "6";
             this.btnCol7.Text = "Column 7";
             this.btnCol7.UseVisualStyleBackColor = true;
+            this.btnCol7.Click += new System.EventHandler(this.playPiece);
             // 
             // imageList1
             // 

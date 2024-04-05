@@ -11,6 +11,7 @@ namespace ConnectFour_Group3
     public class Board
     {
         private Cell[,] board = new Cell[6, 7];
+        private PictureBox[,] grid = new PictureBox[6, 7];
         //True when player 1 move, false when player 2 move (OR AI MOVE)
         private bool isPlayerMove;
         private bool playerStarts;
@@ -196,11 +197,40 @@ namespace ConnectFour_Group3
         /// <param name="grid"></param>
         public void displayToForm(ref PictureBox[,] grid)
         {
+            this.grid = grid;
             for (int i = 0; i < board.GetLength(0); i++)
             {
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
                     if (board[i,j].getVal() == ' ')
+                    {
+                        grid[i, j].Image = Properties.Resources.gray;
+                        continue;
+                    }
+                    if (board[i, j].getVal() == 'X')
+                    {
+                        grid[i, j].Image = Properties.Resources.red;
+                        continue;
+                    }
+                    if (board[i, j].getVal() == 'O')
+                    {
+                        grid[i, j].Image = Properties.Resources.blue;
+                        continue;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fills the buttons with the proper colors (MUST CALL THE OVERLOADED VERSION FIRST)
+        /// </summary>
+        public void displayToForm()
+        {
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    if (board[i, j].getVal() == ' ')
                     {
                         grid[i, j].Image = Properties.Resources.gray;
                         continue;

@@ -25,12 +25,12 @@ namespace ConnectFour_Group3
 
             connectFourBoard = new Board();
 
-            connectFourBoard.makeMove(0);
+            //connectFourBoard.makeMove(0);
 
             //whenever the AI needs to make a move, just use this format!
-            aiPlayer.aiMakeMove(connectFourBoard);
+            //aiPlayer.aiMakeMove(connectFourBoard);
 
-            connectFourBoard.displayBoardToConsole();
+            //connectFourBoard.displayBoardToConsole();
 
             connectFourBoard.displayToForm(ref grid);
         }
@@ -45,6 +45,30 @@ namespace ConnectFour_Group3
                                         { box41, box42, box43, box44, box45, box46, box47 },
                                         { box51, box52, box53, box54, box55, box56, box57 },
                                         { box61, box62, box63, box64, box65, box66, box67 }};
+        }
+        
+        private void playPiece(object sender, EventArgs e)
+        {
+            //Make sure the game hasn't ended
+            if (connectFourBoard.checkWin() == -2)
+            {
+                //Make the player's move
+                string tag = (string)((Button)sender).Tag;
+
+                if (connectFourBoard.makeMove(int.Parse(tag)))
+                {
+                    connectFourBoard.displayToForm();
+
+                    //Make sure the game hasn't ended
+                    if (connectFourBoard.checkWin() == -2)
+                    {
+                        //Make the AI's move
+                        aiPlayer.aiMakeMove(connectFourBoard);
+                        connectFourBoard.displayToForm();
+                    }
+                }
+            }
+
         }
     }
 }
