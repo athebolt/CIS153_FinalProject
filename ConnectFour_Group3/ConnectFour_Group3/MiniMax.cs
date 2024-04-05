@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConnectFour_Group3
 {
-    internal class MiniMax
+    public class MiniMax
     {
-        //TO USE - just call the miniMaxStart function and give it the board
-        //this will make the best move possible on the board
+        //TO USE - just call the aiMakeMove function and give it the connect 4 board
+        //this will make the best move possible on the board (depending on maxDepth)
+
+        //This variable here controls how many moves the AI can see into the future, I kept it at 5 because at any # higher, it starts to take a while. maxDepth * 7 * 
+        //=======================
+        private int maxDepth = 5;
+        //=======================
 
         //constructor
         public MiniMax()
@@ -18,30 +24,36 @@ namespace ConnectFour_Group3
         }
 
         //function to start the algorithm (makes the best move possible on the board)
-        public void miniMaxStart(Board board)
+        public void aiMakeMove(Board board)
         {
             int bestScore = -999;
             int bestMove = 0;
-            
+            int score;
+
             //copy board
             Board copy = new Board(false);
 
-            for (int r = 0; r < board.getRows() - 1; r++)
+            for (int r = 0; r < board.getRows(); r++)
             {
-                for (int c = 0; c < board.getCols() - 1; c++)
+                for (int c = 0; c < board.getCols(); c++)
                 {
                     copy.setCell(r, c, board.getCell(r,c));
                 }    
             }
 
+            Console.WriteLine("Algorithm Started");
+
             //cycle through each playable spot on the board
-            for (int c = 0; c < board.getCols() - 1; c++)
+            for (int c = 0; c < board.getCols(); c++)
             {
+                
+
                 //if you can make a move in this column, make it
                 if(copy.makeMove(c))
                 {
+
                     //run algorithm
-                    int score = miniMax(copy, 0, false);
+                    score = miniMax(copy, 0, false);
 
                     //keeps track of the best possible place to place a piece
                     if (score > bestScore)
@@ -56,31 +68,30 @@ namespace ConnectFour_Group3
                 }
             }
 
+            Console.WriteLine("Algorithm Finished");
+
             //make the best move
             board.makeMove(bestMove);
         }
 
-        //the actual algorithm
+        //the actual algorithm, very difficult to decode because it is a recursive function
         private int miniMax(Board copy, int depth, bool isMax)
         {
             int bestScore;
+            int whoWon = copy.checkWin();
 
-            //pseudocode for now (these functions may not exist)
-            //check for a win or tie
-            //if(AIWon())
-            //{
-            ////subtracting the depth to make the soonest win the best score
-            //return 100 - depth;
-            //}
-            //else if(PlayerWon())
-            //{
-            ////adding depth this time because its the inverse (lowest score is the best in this case)
-            //return -100 + depth;
-            //}
-            //else if(Tie())
-            //{
-                //return 0;
-            //}
+            if(whoWon == 1)
+            {
+                return 1;
+            }
+            else if(whoWon == -1) 
+            {
+                return -1;
+            }
+            else if(whoWon == 0 || depth >= maxDepth)
+            {
+                return 0;
+            }
 
             //if AI turn
             if (isMax)
@@ -88,7 +99,7 @@ namespace ConnectFour_Group3
                 //start with the lowest possible score since we are looking for the highest possible (maximizing)
                 bestScore = -999;
 
-                for (int c = 0; c < copy.getCols() - 1; c++)
+                for (int c = 0; c < copy.getCols(); c++)
                 {
                     if(copy.makeMove(c))
                     {
@@ -107,7 +118,7 @@ namespace ConnectFour_Group3
                 //start with the highest possible score since we are looking for the lowest possible (minimizing)
                 bestScore = 999;
 
-                for (int c = 0; c < copy.getCols() - 1; c++)
+                for (int c = 0; c < copy.getCols(); c++)
                 {
                     if(copy.makeMove(c))
                     {
@@ -120,6 +131,8 @@ namespace ConnectFour_Group3
                     }
                 }
             }
+
+            //Console.WriteLine(bestScore);
 
             return bestScore;
         }

@@ -12,18 +12,24 @@ namespace ConnectFour_Group3
 {
     public partial class Form1 : Form
     {
-        public Board connectFourBoard;
+        public Board connectFourBoard = new Board();
+        public MiniMax aiPlayer = new MiniMax();
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
         public PictureBox[,] grid;
 
         public Form1()
         {
             InitializeComponent();
-            connectFourBoard = new Board(true);
+            
             fillButtonArray();
+
             connectFourBoard.makeMove(0);
-            connectFourBoard.makeMove(1);
-            connectFourBoard.makeMove(1);
+            
+            //whenever the AI needs to make a move, just use this format!
+            aiPlayer.aiMakeMove(connectFourBoard);
+
+            connectFourBoard.displayBoardToConsole();
+
             connectFourBoard.displayToForm(ref grid);
         }
 

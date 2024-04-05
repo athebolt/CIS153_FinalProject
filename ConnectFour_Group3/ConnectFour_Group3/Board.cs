@@ -241,6 +241,7 @@ namespace ConnectFour_Group3
             {
                 if (!board[i, col].isEmpty())
                 {
+                    isPlayerMove = !isPlayerMove;
                     board[i, col].setVal(' ');
                     break;
                 }
