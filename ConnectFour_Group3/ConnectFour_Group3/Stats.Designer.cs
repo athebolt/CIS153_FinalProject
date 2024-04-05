@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.lblPlayerWins = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPlayerwinper = new System.Windows.Forms.Label();
+            this.lblAIwins = new System.Windows.Forms.Label();
+            this.lblAIwinper = new System.Windows.Forms.Label();
             this.ctrPlayerWins = new System.Windows.Forms.Label();
             this.ctrPlayerWinPer = new System.Windows.Forms.Label();
             this.ctrAIWins = new System.Windows.Forms.Label();
@@ -48,35 +48,35 @@
             this.lblPlayerWins.TabIndex = 0;
             this.lblPlayerWins.Text = "Player Wins:";
             // 
-            // label1
+            // lblPlayerwinper
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 226);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 36);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Player Win %:";
+            this.lblPlayerwinper.AutoSize = true;
+            this.lblPlayerwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerwinper.Location = new System.Drawing.Point(134, 226);
+            this.lblPlayerwinper.Name = "lblPlayerwinper";
+            this.lblPlayerwinper.Size = new System.Drawing.Size(216, 36);
+            this.lblPlayerwinper.TabIndex = 1;
+            this.lblPlayerwinper.Text = "Player Win %:";
             // 
-            // label2
+            // lblAIwins
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(860, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 36);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "AI Wins:";
+            this.lblAIwins.AutoSize = true;
+            this.lblAIwins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAIwins.Location = new System.Drawing.Point(860, 87);
+            this.lblAIwins.Name = "lblAIwins";
+            this.lblAIwins.Size = new System.Drawing.Size(136, 36);
+            this.lblAIwins.TabIndex = 2;
+            this.lblAIwins.Text = "AI Wins:";
             // 
-            // label3
+            // lblAIwinper
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(860, 226);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 36);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "AI Win %:";
+            this.lblAIwinper.AutoSize = true;
+            this.lblAIwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAIwinper.Location = new System.Drawing.Point(860, 226);
+            this.lblAIwinper.Name = "lblAIwinper";
+            this.lblAIwinper.Size = new System.Drawing.Size(157, 36);
+            this.lblAIwinper.TabIndex = 3;
+            this.lblAIwinper.Text = "AI Win %:";
             // 
             // ctrPlayerWins
             // 
@@ -127,9 +127,9 @@
             this.Controls.Add(this.ctrAIWins);
             this.Controls.Add(this.ctrPlayerWinPer);
             this.Controls.Add(this.ctrPlayerWins);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAIwinper);
+            this.Controls.Add(this.lblAIwins);
+            this.Controls.Add(this.lblPlayerwinper);
             this.Controls.Add(this.lblPlayerWins);
             this.Name = "Stats";
             this.Text = "Stats";
@@ -141,9 +141,9 @@
         #endregion
 
         private System.Windows.Forms.Label lblPlayerWins;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPlayerwinper;
+        private System.Windows.Forms.Label lblAIwins;
+        private System.Windows.Forms.Label lblAIwinper;
         private System.Windows.Forms.Label ctrPlayerWins;
         private System.Windows.Forms.Label ctrPlayerWinPer;
         private System.Windows.Forms.Label ctrAIWins;
