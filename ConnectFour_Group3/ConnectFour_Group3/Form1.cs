@@ -32,6 +32,10 @@ namespace ConnectFour_Group3
 
             //connectFourBoard.displayBoardToConsole();
 
+            // need this for debugging, anyone can delete if its annoying.
+            Stats statForm = new Stats();
+            statForm.Show();
+
             connectFourBoard.displayToForm(ref grid);
         }
 

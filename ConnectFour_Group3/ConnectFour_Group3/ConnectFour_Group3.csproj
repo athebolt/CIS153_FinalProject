@@ -102,5 +102,8 @@
   <ItemGroup>
     <None Include="Resources\blue.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="GameData\SaveData.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
