@@ -191,10 +191,10 @@ namespace ConnectFour_Group3
 
                     for (int i = 1; i < 4; i++) //checks the next 3 spots in each direction to see the value in the original space is equal to the value of the next 3 spaces (4 in a row)
                     {
-                        horizontal = horizontal && board[r, c] == board[r, c + i];
-                        vertical = vertical && board[r, c] == board[r + i, c];
-                        forwardDiag = forwardDiag && board[r, c] == board[r + i, c + i];
-                        backwardDiag = backwardDiag && board[r, c] == board[r + i, c - i];
+                        horizontal = horizontal && board[r, c].getVal() == board[r, c + i].getVal();
+                        vertical = vertical && board[r, c].getVal() == board[r + i, c].getVal();
+                        forwardDiag = forwardDiag && board[r, c].getVal() == board[r + i, c + i].getVal();
+                        backwardDiag = backwardDiag && board[r, c].getVal() == board[r + i, c - i].getVal();
                         if (!horizontal && !vertical && !forwardDiag && !backwardDiag)
                             break; //the second that a win is not possible in any direction, move to the next cell
                     }
