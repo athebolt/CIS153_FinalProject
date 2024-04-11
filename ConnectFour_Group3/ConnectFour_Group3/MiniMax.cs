@@ -26,8 +26,9 @@ namespace ConnectFour_Group3
         //function to start the algorithm (makes the best move possible on the board)
         public void aiMakeMove(Board board)
         {
+            Random random = new Random();
             int bestScore = -1;
-            int bestMove = 0;
+            List<int> bestMoves = new List<int>();
             int score;
             Board copy = board;
 
@@ -39,22 +40,38 @@ namespace ConnectFour_Group3
                 {
                     score = miniMax(copy, depth, false); //run algorithm
 
-                    //keeps track of the best possible place to place a piece
-                    if (score > bestScore)
-                    {
-                        bestScore = score;
-                        bestMove = c;
-                    }
+                    //testing
+                    //Console.WriteLine(score);
+                    //copy.displayBoardToConsole();
 
                     //remove the piece from the board
                     copy.removeCell(c);
+
+                    //keeps track of the best possible place to place a piece
+                    if (score == bestScore)
+                    {
+                        bestMoves.Add(c);
+                        continue;
+                    }
+                    if (score > bestScore)
+                    {
+                        bestMoves.Clear();
+                        bestMoves.Add(c);
+                        bestScore = score;
+                        continue;
+                    }
                 }
             }
 
-            Console.WriteLine(bestScore);
+            //testing
+            //Console.WriteLine(bestScore);
+            //for (int c = 0; c < bestMoves.Count; c++)
+            //{
+            //Console.WriteLine(bestMoves[c] + 1);
+            //}
 
-            //make the best move
-            board.makeMove(bestMove);
+            //make one of the best moves randomly
+            board.makeMove(bestMoves[random.Next(0, bestMoves.Count)]);
         }
 
         //the actual algorithm, very difficult to debug because it is a recursive function
@@ -66,7 +83,7 @@ namespace ConnectFour_Group3
             //return if there is a win or tie
             if(whoWon == -1)
                 return depth;
-            else if(whoWon == 1) 
+            else if(whoWon == 1)
                 return -depth;
             else if(whoWon == 0 || depth <= 0)
                 return 0;

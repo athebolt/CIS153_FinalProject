@@ -200,7 +200,7 @@ namespace ConnectFour_Group3
                     }
 
                     if (horizontal || vertical || forwardDiag || backwardDiag) //if there 4 in a row in any direction, that player is the winner
-                        return playerStarts ? 1 : -1; //win for either player
+                        return isPlayerMove? -1 : 1; //win for either player
                 }
             }
 
