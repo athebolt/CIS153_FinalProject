@@ -54,7 +54,7 @@ namespace ConnectFour_Group3
         private void playPiece(object sender, EventArgs e)
         {
             //Make sure the game hasn't ended
-            if (connectFourBoard.checkWin() == -2)
+            if (connectFourBoard.checkWinV2() == -2)
             {
                 //Make the player's move
                 string tag = (string)((Button)sender).Tag;
@@ -64,7 +64,7 @@ namespace ConnectFour_Group3
                     connectFourBoard.displayToForm();
 
                     //Make sure the game hasn't ended
-                    if (connectFourBoard.checkWin() == -2)
+                    if (connectFourBoard.checkWinV2() == -2)
                     {
                         //Make the AI's move
                         aiPlayer.aiMakeMove(connectFourBoard);

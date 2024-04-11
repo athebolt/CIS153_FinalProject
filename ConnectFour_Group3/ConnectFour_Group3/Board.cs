@@ -170,6 +170,46 @@ namespace ConnectFour_Group3
             }
         }
 
+        //this version will check for wins in all directions at the same time
+        public int checkWinV2()
+        {
+            for (int r = 0; r < getRows(); r++)
+            {
+                for (int c = 0; c < getCols(); c++)
+                {
+                    if (board[r, c].isEmpty())
+                        continue; //if this cell is empty, skip this iteration
+
+                    bool horizontal = c + 3 < getCols(); //is it possible to get a horizontal win
+                    bool vertical = r + 3 < getRows(); //is it possible to get a vertical win
+
+                    if (!horizontal && !vertical)
+                        continue; //if neither are possible, skip this iteration
+
+                    bool forwardDiag = horizontal && vertical; //if both a horizontal and vertical win are possible, then a forward diagonal is possible
+                    bool backwardDiag = c - 3 >= 0 && vertical; //if we can go backwards 3 cells and go up 3, then a backwards win is possible
+
+                    for (int i = 1; i < 4; i++) //checks the next 3 spots in each direction to see the value in the original space is equal to the value of the next 3 spaces (4 in a row)
+                    {
+                        horizontal = horizontal && board[r, c] == board[r, c + i];
+                        vertical = vertical && board[r, c] == board[r + i, c];
+                        forwardDiag = forwardDiag && board[r, c] == board[r + i, c + i];
+                        backwardDiag = backwardDiag && board[r, c] == board[r + i, c - i];
+                        if (!horizontal && !vertical && !forwardDiag && !backwardDiag)
+                            break; //the second that a win is not possible in any direction, move to the next cell
+                    }
+
+                    if (horizontal || vertical || forwardDiag || backwardDiag) //if there 4 in a row in any direction, that player is the winner
+                        return playerStarts ? 1 : -1; //win for either player
+                }
+            }
+
+            if(isFull())
+                return 0; //tie
+
+            return -2; //no win
+        }
+
         /// <summary>
         /// Makes a move in the given column (0-6), returning true if the move is possible and false if it is not
         /// </summary>
@@ -282,6 +322,17 @@ namespace ConnectFour_Group3
                     break;
                 }
             }
+        }
+
+        public bool isFull()
+        {
+            for (int c = 0; c < getCols(); c++) //checking to see if the board is full (if all the top columns are taken)
+            {
+                if (board[0, c].isEmpty())
+                    return false; // there is at least one open space
+            }
+
+            return true; //full board
         }
 
         #endregion

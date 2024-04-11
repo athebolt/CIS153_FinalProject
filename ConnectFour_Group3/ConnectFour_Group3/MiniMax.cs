@@ -51,6 +51,8 @@ namespace ConnectFour_Group3
                 }
             }
 
+            Console.WriteLine(bestScore);
+
             //make the best move
             board.makeMove(bestMove);
         }
@@ -59,7 +61,7 @@ namespace ConnectFour_Group3
         private int miniMax(Board copy, int depth, bool isMax)
         {
             //check for a win or tie
-            int whoWon = copy.checkWin();
+            int whoWon = copy.checkWinV2();
 
             //return if there is a win or tie
             if(whoWon == -1)
