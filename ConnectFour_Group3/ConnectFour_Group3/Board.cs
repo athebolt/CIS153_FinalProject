@@ -173,6 +173,12 @@ namespace ConnectFour_Group3
         //this version will check for wins in all directions at the same time
         public int checkWinV2()
         {
+            //what is returned for each outcome
+            int player1Win = -1;
+            int player2Win = 1;
+            int tie = 0;
+            int noWin = -2;
+
             for (int r = 0; r < getRows(); r++)
             {
                 for (int c = 0; c < getCols(); c++)
@@ -181,33 +187,34 @@ namespace ConnectFour_Group3
                         continue; //if this cell is empty, skip this iteration
 
                     bool horizontal = c + 3 < getCols(); //is it possible to get a horizontal win
-                    bool vertical = r + 3 < getRows(); //is it possible to get a vertical win
+                    bool vertical   = r + 3 < getRows(); //is it possible to get a vertical win
 
                     if (!horizontal && !vertical)
                         continue; //if neither are possible, skip this iteration
 
-                    bool forwardDiag = horizontal && vertical; //if both a horizontal and vertical win are possible, then a forward diagonal is possible
+                    bool forwardDiag  = horizontal && vertical; //if both a horizontal and vertical win are possible, then a forward diagonal is possible
                     bool backwardDiag = c - 3 >= 0 && vertical; //if we can go backwards 3 cells and go up 3, then a backwards win is possible
 
                     for (int i = 1; i < 4; i++) //checks the next 3 spots in each direction to see the value in the original space is equal to the value of the next 3 spaces (4 in a row)
                     {
-                        horizontal = horizontal && board[r, c].getVal() == board[r, c + i].getVal();
-                        vertical = vertical && board[r, c].getVal() == board[r + i, c].getVal();
-                        forwardDiag = forwardDiag && board[r, c].getVal() == board[r + i, c + i].getVal();
+                        horizontal   = horizontal   && board[r, c].getVal() == board[r, c + i].getVal();
+                        vertical     = vertical     && board[r, c].getVal() == board[r + i, c].getVal();
+                        forwardDiag  = forwardDiag  && board[r, c].getVal() == board[r + i, c + i].getVal();
                         backwardDiag = backwardDiag && board[r, c].getVal() == board[r + i, c - i].getVal();
+
                         if (!horizontal && !vertical && !forwardDiag && !backwardDiag)
                             break; //the second that a win is not possible in any direction, move to the next cell
                     }
 
                     if (horizontal || vertical || forwardDiag || backwardDiag) //if there 4 in a row in any direction, that player is the winner
-                        return isPlayerMove? -1 : 1; //win for either player
+                        return isPlayerMove? player1Win : player2Win;
                 }
             }
 
             if(isFull())
-                return 0; //tie
+                return tie;
 
-            return -2; //no win
+            return noWin;
         }
 
         /// <summary>
