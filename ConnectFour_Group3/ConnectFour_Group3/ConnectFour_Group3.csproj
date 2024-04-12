@@ -104,6 +104,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameData\SaveData.txt" />
+    <None Include="Resources\Red Space.png" />
+    <None Include="Resources\Red Space Transparent.png" />
+    <None Include="Resources\Blue Space.png" />
+    <None Include="Resources\Blue Space Transparent.png" />
+    <None Include="Resources\Blank space.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

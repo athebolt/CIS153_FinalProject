@@ -538,7 +538,7 @@
             // 
             // box11
             // 
-            this.box11.InitialImage = global::ConnectFour_Group3.Properties.Resources.gray;
+            this.box11.InitialImage = global::ConnectFour_Group3.Properties.Resources.Red_Space;
             this.box11.Location = new System.Drawing.Point(117, 50);
             this.box11.Name = "box11";
             this.box11.Size = new System.Drawing.Size(124, 111);
