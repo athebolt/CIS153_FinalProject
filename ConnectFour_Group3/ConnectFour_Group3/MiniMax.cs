@@ -19,7 +19,7 @@ namespace ConnectFour_Group3
         public MiniMax() {}
 
         //function to start the algorithm (makes the best move possible on the board)
-        public void aiMakeMove(Board board)
+        public int aiMakeMove(Board board)
         {
             Random random = new Random();
             int bestScore = -1;
@@ -32,7 +32,7 @@ namespace ConnectFour_Group3
             {
                 if (copy.makeMove(c)) //if you can make a move in this column, make it
                 {
-                    score = miniMax(copy, depth, false); //run algorithm
+                    score = miniMax(copy, depth, false, -1); //run algorithm
 
                     copy.removeCell(c); //remove the move
 
@@ -52,24 +52,33 @@ namespace ConnectFour_Group3
                 }
             }
 
+            int col;
+
             if(bestMoves.Count > 0) //make move on the actual board
-                board.makeMove(bestMoves[random.Next(0, bestMoves.Count)]);
+                col = bestMoves[random.Next(0, bestMoves.Count)];
             else
-                board.makeMove(random.Next(0, board.getCols()));
+                col = random.Next(0, board.getCols());
+
+            board.makeMove(col);
+
+            return col;
         }
 
-        private int miniMax(Board copy, int depth, bool isMax)
+        private int miniMax(Board copy, int depth, bool isMax, int col)
         {
-            int whoWon = copy.checkWinV2();
+            if(!(col == -1))
+            {
+                int whoWon = copy.checkWinV2(col);
 
-            if(whoWon == -1)
-                return depth;
+                if (whoWon == -1)
+                    return depth;
 
-            else if(whoWon == 1)
-                return -depth;
+                else if (whoWon == 1)
+                    return -depth;
 
-            else if(whoWon == 0 || depth <= 0)
-                return 0;
+                else if (whoWon == 0 || depth <= 0)
+                    return 0;
+            }
 
             int bestScore = isMax ? -1 : 1;
             int score;
@@ -78,7 +87,7 @@ namespace ConnectFour_Group3
             {
                 if (copy.makeMove(c)) //make a move
                 {
-                    score = miniMax(copy, depth - 1, !isMax); //run alg to go deeper one move, pass board, subtract one move, flip player
+                    score = miniMax(copy, depth - 1, !isMax, c); //run alg to go deeper one move, pass board, subtract one move, flip player
 
                     bestScore = isMax ? Math.Max(bestScore, score) : Math.Min(bestScore, score); //new best score? store it
 

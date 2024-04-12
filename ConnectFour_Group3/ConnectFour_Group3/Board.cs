@@ -16,6 +16,9 @@ namespace ConnectFour_Group3
         private bool isPlayerMove;
         private bool playerStarts;
 
+        //if true, the board cannot be played on
+        private bool isLocked = false;
+
         #region Constructors
 
         /// <summary>
@@ -170,49 +173,58 @@ namespace ConnectFour_Group3
             }
         }
 
-        //this version will check for wins in all directions at the same time
-        public int checkWinV2()
+        //only checks the last placed piece if it makes a win (rather than every cell)
+        public int checkWinV2(int col)
         {
             //what is returned for each outcome
             int player1Win = -1;
             int player2Win = 1;
-            int tie = 0;
-            int noWin = -2;
+            int tie        = 0;
+            int noWin      = -2;
 
-            for (int r = 0; r < getRows(); r++)
+            //finding the last placed piece's value and pos
+            for (int row = 0; row < board.GetLength(0); row++)
             {
-                for (int c = 0; c < getCols(); c++)
+                if (!board[row, col].isEmpty())
                 {
-                    if (board[r, c].isEmpty())
-                        continue; //if this cell is empty, skip this iteration
+                    //determines if it is possible to check in a direction
+                    bool left = 0 <= col - 3;
+                    bool right = getCols() > col + 3;
+                    bool down = 0 <= row - 3;
+                    bool up = getRows() > row + 3;
 
-                    bool horizontal = c + 3 < getCols(); //is it possible to get a horizontal win
-                    bool vertical   = r + 3 < getRows(); //is it possible to get a vertical win
+                    bool leftUp = left && up;
+                    bool rightUp = right && up;
+                    bool leftDown = left && down;
+                    bool rightDown = right && down;
 
-                    if (!horizontal && !vertical)
-                        continue; //if neither are possible, skip this iteration
-
-                    bool forwardDiag  = horizontal && vertical; //if both a horizontal and vertical win are possible, then a forward diagonal is possible
-                    bool backwardDiag = c - 3 >= 0 && vertical; //if we can go backwards 3 cells and go up 3, then a backwards win is possible
-
-                    for (int i = 1; i < 4; i++) //checks the next 3 spots in each direction to see the value in the original space is equal to the value of the next 3 spaces (4 in a row)
+                    for (int i = 1; i < 4; i++)
                     {
-                        horizontal   = horizontal   && board[r, c].getVal() == board[r, c + i].getVal();
-                        vertical     = vertical     && board[r, c].getVal() == board[r + i, c].getVal();
-                        forwardDiag  = forwardDiag  && board[r, c].getVal() == board[r + i, c + i].getVal();
-                        backwardDiag = backwardDiag && board[r, c].getVal() == board[r + i, c - i].getVal();
+                        //checking in each direction to see if there are 4 in a row
+                        left  = left  && board[row, col].getVal() == board[row, col - i].getVal();
+                        right = right && board[row, col].getVal() == board[row, col + i].getVal();
+                        down  = down  && board[row, col].getVal() == board[row - i, col].getVal();
+                        up    = up    && board[row, col].getVal() == board[row + i, col].getVal();
 
-                        if (!horizontal && !vertical && !forwardDiag && !backwardDiag)
-                            break; //the second that a win is not possible in any direction, move to the next cell
+                        //diagonal checks
+                        leftUp    = leftUp    && board[row, col].getVal() == board[row + i, col - i].getVal();
+                        rightUp   = rightUp   && board[row, col].getVal() == board[row + i, col + i].getVal();
+                        leftDown  = leftDown  && board[row, col].getVal() == board[row - i, col - i].getVal();
+                        rightDown = rightDown && board[row, col].getVal() == board[row - i, col + i].getVal();
+
+                        if (!left && !right && !up && !down && !leftUp && !leftDown && !rightUp && !rightDown) //if no wins are possible, skip checking
+                            break;
                     }
 
-                    if (horizontal || vertical || forwardDiag || backwardDiag) //if there 4 in a row in any direction, that player is the winner
-                        return isPlayerMove? player1Win : player2Win;
+                    if (left || right || up || down || leftUp || leftDown || rightUp || rightDown) //if there are any wins, determine winner
+                        return isPlayerMove ? player1Win : player2Win;
+
+                    if (isFull()) //if the board is full and no one won, then its a tie
+                        return tie;
+
+                    break;
                 }
             }
-
-            if(isFull())
-                return tie;
 
             return noWin;
         }
@@ -340,6 +352,17 @@ namespace ConnectFour_Group3
             }
 
             return true; //full board
+        }
+
+        public bool isGameOver()
+        {
+            return isLocked;
+        }
+
+        public void lockBoard()
+        {
+            isLocked = true;
+            Console.WriteLine("locked");
         }
 
         #endregion

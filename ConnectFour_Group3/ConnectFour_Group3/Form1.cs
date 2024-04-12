@@ -25,7 +25,9 @@ namespace ConnectFour_Group3
 
             connectFourBoard = new Board();
 
-            //connectFourBoard.makeMove(0);
+            //connectFourBoard.makeMove(6);
+
+            //connectFourBoard.checkWinV3(6);
 
             //whenever the AI needs to make a move, just use this format!
             //aiPlayer.aiMakeMove(connectFourBoard);
@@ -54,7 +56,7 @@ namespace ConnectFour_Group3
         private void playPiece(object sender, EventArgs e)
         {
             //Make sure the game hasn't ended
-            if (connectFourBoard.checkWinV2() == -2)
+            if (!connectFourBoard.isGameOver())
             {
                 //Make the player's move
                 string tag = (string)((Button)sender).Tag;
@@ -63,12 +65,20 @@ namespace ConnectFour_Group3
                 {
                     connectFourBoard.displayToForm();
 
+                    //check for a win, if the game is over, lock the board
+                    if(!(connectFourBoard.checkWinV2(int.Parse(tag)) == -2))
+                        connectFourBoard.lockBoard();
+
                     //Make sure the game hasn't ended
-                    if (connectFourBoard.checkWinV2() == -2)
+                    if (!connectFourBoard.isGameOver())
                     {
                         //Make the AI's move
-                        aiPlayer.aiMakeMove(connectFourBoard);
+                        int col = aiPlayer.aiMakeMove(connectFourBoard);
                         connectFourBoard.displayToForm();
+
+                        //check for a win, if the game is over, lock the board
+                        if (!(connectFourBoard.checkWinV2(col) == -2))
+                            connectFourBoard.lockBoard();
                     }
                 }
             }
