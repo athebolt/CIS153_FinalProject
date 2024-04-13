@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace ConnectFour_Group3
     public partial class Form1 : Form
     {
         public Board connectFourBoard;
+        private GameStats gameData;
+
         public MiniMax aiPlayer = new MiniMax();
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
         public PictureBox[,] grid;
@@ -24,6 +27,9 @@ namespace ConnectFour_Group3
             fillButtonArray();
 
             connectFourBoard = new Board();
+            gameData = new GameStats();
+
+            gameData.loadStats();
 
             //connectFourBoard.makeMove(6);
 
@@ -59,15 +65,16 @@ namespace ConnectFour_Group3
             if (!connectFourBoard.isGameOver())
             {
                 //Make the player's move
-                string tag = (string)((Button)sender).Tag;
+                string tag = (string)((Button)sender).Tag;                
 
                 if (connectFourBoard.makeMove(int.Parse(tag)))
                 {
-                    connectFourBoard.displayToForm();
+                    connectFourBoard.displayToForm();           
 
                     //check for a win, if the game is over, lock the board
-                    if(!(connectFourBoard.checkWinV2(int.Parse(tag)) == -2))
+                    if (!(connectFourBoard.checkWinV2(int.Parse(tag)) == -2))
                         connectFourBoard.lockBoard();
+                        checkGameOutcome(int.Parse(tag));
 
                     //Make sure the game hasn't ended
                     if (!connectFourBoard.isGameOver())
@@ -79,10 +86,20 @@ namespace ConnectFour_Group3
                         //check for a win, if the game is over, lock the board
                         if (!(connectFourBoard.checkWinV2(col) == -2))
                             connectFourBoard.lockBoard();
+                            checkGameOutcome(col);                            
                     }
                 }
             }
+        }
+        // checks game outcome if not -2 (meaning concluded in some state) and updates those stats.
+        private void checkGameOutcome(int col)
+        {
+            int gameOutcome = connectFourBoard.checkWinV2(col);
 
+            if (gameOutcome != -2)
+            {                
+                gameData.updateStats(gameOutcome);
+            }
         }
     }
 }

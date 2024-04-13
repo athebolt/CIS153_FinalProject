@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConnectFour_Group3
 {
-    // next:
-    // • Accurate tracking and display of game status (ties, total games, etc)
-    // • dynamic win percentage (changes based on pulled data)
-    // • saving stats function (it will do this on successful game conclusion)
+    // next: limit decimal count in static menu
+    // next: refine code
+    // next: bug test, prob tons of bugz
+    
     internal class GameStats
     {
         public int aiWins;
@@ -23,15 +25,21 @@ namespace ConnectFour_Group3
 
         public void saveStats()
         {
-            // logic 
+            calcWinPercentage();
+
+            string stCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string stFile = Path.Combine(stCurrentDirectory, @"..\..\GameData\SaveData.txt");
+            string stFilePath = Path.GetFullPath(stFile);
+            string newLine = $"{aiWins},{playerWins},{ties},{totalGames},{playerWinP:0.00},{aiWinP:0.00}";
+
+            // Overwrite the file content with the new line
+            File.WriteAllText(stFilePath, newLine);
+
         }
         public void loadStats()
         {
-            // get basedirectory of the app where its running
             string stCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            // combine base dir with relative path to the text file, and go up two directories to reach the correct folder
             string stFile = Path.Combine(stCurrentDirectory, @"..\..\GameData\SaveData.txt");
-            // turn relative path to absolute path
             string stFilePath = Path.GetFullPath(stFile);
 
             // check if file path actually exists prior
@@ -48,36 +56,68 @@ namespace ConnectFour_Group3
                             aiWins = int.Parse(stats[0]);
                             playerWins = int.Parse(stats[1]);
                             ties = int.Parse(stats[2]);
-                            aiWinP = double.Parse(stats[3]);
-                            playerWinP = double.Parse(stats[4]);
-                            totalGames = int.Parse(stats[5]);
+                            totalGames = int.Parse(stats[3]);
                         }
                     }
+                    else
+                    {
+                        initializeStats();                        
+                    }
                 }
+                calcWinPercentage();
             }
             else
             {
+                initializeStats();
+                
                 MessageBox.Show("file not found");
             }
         }
-        public void updateStats()
+        public void updateStats(int outcome)
         {
-            // logic
+            totalGames++; // change so this doesnt update at end?
+
+            MessageBox.Show($"game outcome : {outcome}"); // Debug line
+
+            switch (outcome)
+            {
+                // from board class
+                case 1:
+                    playerWins++;
+                    break;
+                case -1:
+                    aiWins++;
+                    break;
+                case 0:
+                    ties++;
+                    break;
+            }
+            calcWinPercentage();
+            saveStats();
         }
-        public double calcWinPercentage(int wins)
+        public void calcWinPercentage()
         {
-            int totalGames = aiWins + playerWins + ties;
+            totalGames = aiWins + playerWins + ties;
 
             if (totalGames > 0)
             {
-                playerWinP = (double)wins / totalGames * 100;
+                aiWinP = (double)aiWins / totalGames * 100;
+                playerWinP = (double)playerWins / totalGames * 100;
             }
             else
             {
+                aiWinP = 0;
                 playerWinP = 0;
             }
-
-            return playerWinP;
+        }
+        public void initializeStats()
+        {
+            aiWins = 0;
+            playerWins = 0;
+            ties = 0;
+            totalGames = 0;
+            playerWinP = 0;
+            aiWinP = 0;
         }
     }
 }
