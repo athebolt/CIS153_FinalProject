@@ -613,6 +613,7 @@
             this.Controls.Add(this.btnCol1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.box66)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box65)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box67)).EndInit();

@@ -13,6 +13,11 @@ namespace ConnectFour_Group3
 {
     public partial class Form1 : Form
     {
+        //A reference to the title page for whenever we are ready to close the game
+        private TitlePage titlePage;
+        //The gamemode that the user picked (0 for AI, 1 for two player)
+        private int gamemode;
+
         public Board connectFourBoard;
         private GameStats gameData;
 
@@ -20,9 +25,17 @@ namespace ConnectFour_Group3
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
         public PictureBox[,] grid;
 
-        public Form1()
+
+        /// <summary>
+        /// Starts the game, given the titlePage and the gamemode.
+        /// </summary>
+        /// <param name="tp"></param>
+        /// <param name="gm"></param>
+        public Form1(TitlePage tp, int gm)
         {
             InitializeComponent();
+
+            titlePage = tp; 
             
             fillButtonArray();
 
@@ -39,10 +52,6 @@ namespace ConnectFour_Group3
             //aiPlayer.aiMakeMove(connectFourBoard);
 
             //connectFourBoard.displayBoardToConsole();
-
-            // need this for debugging, anyone can delete if its annoying.
-            Stats statForm = new Stats();
-            statForm.Show();
 
             connectFourBoard.displayToForm(ref grid);
         }
@@ -69,7 +78,8 @@ namespace ConnectFour_Group3
 
                 if (connectFourBoard.makeMove(int.Parse(tag)))
                 {
-                    connectFourBoard.displayToForm();           
+                    connectFourBoard.displayToForm();
+                    Update();
 
                     //check for a win, if the game is over, lock the board
                     if (!(connectFourBoard.checkWinV2(int.Parse(tag)) == -2))
@@ -100,6 +110,11 @@ namespace ConnectFour_Group3
             {                
                 gameData.updateStats(gameOutcome);
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            titlePage.Show();
         }
     }
 }

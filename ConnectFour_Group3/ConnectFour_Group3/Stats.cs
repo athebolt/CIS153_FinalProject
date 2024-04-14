@@ -14,9 +14,13 @@ namespace ConnectFour_Group3
     public partial class Stats : Form
     {
         private GameStats gameStats;
-        public Stats()
+        private TitlePage titlePage;
+
+        public Stats(TitlePage tp)
         {
             InitializeComponent();
+
+            titlePage = tp;
 
             gameStats = new GameStats();
 
@@ -28,6 +32,11 @@ namespace ConnectFour_Group3
             ctrAIWinPer.Text = gameStats.aiWinP.ToString();
 
             // adding total games and ties once Tristan adds the labels.
+        }
+
+        private void Stats_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            titlePage.Show();
         }
     }
 }

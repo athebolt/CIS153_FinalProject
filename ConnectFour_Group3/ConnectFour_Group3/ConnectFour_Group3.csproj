@@ -58,11 +58,23 @@
     <Compile Include="MiniMax.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectGamemode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectGamemode.Designer.cs">
+      <DependentUpon>SelectGamemode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stats.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stats.Designer.cs">
       <DependentUpon>Stats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TitlePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TitlePage.Designer.cs">
+      <DependentUpon>TitlePage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -77,8 +89,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SelectGamemode.resx">
+      <DependentUpon>SelectGamemode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stats.resx">
       <DependentUpon>Stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TitlePage.resx">
+      <DependentUpon>TitlePage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

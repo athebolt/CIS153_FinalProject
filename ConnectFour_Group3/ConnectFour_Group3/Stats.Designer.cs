@@ -133,6 +133,7 @@
             this.Controls.Add(this.lblPlayerWins);
             this.Name = "Stats";
             this.Text = "Stats";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Stats_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
