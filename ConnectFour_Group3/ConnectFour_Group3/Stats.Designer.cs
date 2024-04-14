@@ -36,6 +36,7 @@
             this.ctrPlayerWinPer = new System.Windows.Forms.Label();
             this.ctrAIWins = new System.Windows.Forms.Label();
             this.ctrAIWinPer = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPlayerWins
@@ -118,11 +119,23 @@
             this.ctrAIWinPer.TabIndex = 7;
             this.ctrAIWinPer.Text = "0";
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(1229, 745);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(180, 48);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Back";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1462, 830);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.ctrAIWinPer);
             this.Controls.Add(this.ctrAIWins);
             this.Controls.Add(this.ctrPlayerWinPer);
@@ -149,5 +162,6 @@
         private System.Windows.Forms.Label ctrPlayerWinPer;
         private System.Windows.Forms.Label ctrAIWins;
         private System.Windows.Forms.Label ctrAIWinPer;
+        private System.Windows.Forms.Button button3;
     }
 }

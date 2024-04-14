@@ -38,5 +38,11 @@ namespace ConnectFour_Group3
         {
             titlePage.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            titlePage.Show();
+            this.Close();
+        }
     }
 }
