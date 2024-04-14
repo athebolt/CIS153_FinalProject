@@ -16,7 +16,7 @@ namespace ConnectFour_Group3
         private bool isPlayerMove;
         private bool playerStarts;
 
-        //if true, the board cannot be played on
+        //if true, no one can play on the board
         private bool isLocked = false;
 
         #region Constructors
@@ -177,8 +177,8 @@ namespace ConnectFour_Group3
         public int checkWinV2(int col)
         {
             //what is returned for each outcome
-            int player1Win = -1;
-            int player2Win = 1;
+            int player1Win = 1;
+            int player2Win = -1;
             int tie        = 0;
             int noWin      = -2;
 
@@ -198,25 +198,57 @@ namespace ConnectFour_Group3
                     bool leftDown = left && down;
                     bool rightDown = right && down;
 
+                    int horizontal = 1;
+                    int vertical = 1;
+                    int forwardDiag = 1;
+                    int backDiag = 1;
+
                     for (int i = 1; i < 4; i++)
                     {
-                        //checking in each direction to see if there are 4 in a row
+                        //checking in each direction to see if it matches the placed piece
                         left  = left  && board[row, col].getVal() == board[row, col - i].getVal();
+                        if (left)
+                            horizontal++;
+
                         right = right && board[row, col].getVal() == board[row, col + i].getVal();
+                        if (right)
+                            horizontal++;
+
                         down  = down  && board[row, col].getVal() == board[row - i, col].getVal();
+                        if (down)
+                            vertical++;
+
                         up    = up    && board[row, col].getVal() == board[row + i, col].getVal();
+                        if (up)
+                            vertical++;
 
                         //diagonal checks
                         leftUp    = leftUp    && board[row, col].getVal() == board[row + i, col - i].getVal();
+                        if (leftUp)
+                            backDiag++;
+
                         rightUp   = rightUp   && board[row, col].getVal() == board[row + i, col + i].getVal();
+                        if(rightUp)
+                            forwardDiag++;
+
                         leftDown  = leftDown  && board[row, col].getVal() == board[row - i, col - i].getVal();
+                        if (leftDown)
+                            forwardDiag++;
+
                         rightDown = rightDown && board[row, col].getVal() == board[row - i, col + i].getVal();
+                        if (rightDown)
+                            backDiag++;
 
                         if (!left && !right && !up && !down && !leftUp && !leftDown && !rightUp && !rightDown) //if no wins are possible, skip checking
                             break;
                     }
 
-                    if (left || right || up || down || leftUp || leftDown || rightUp || rightDown) //if there are any wins, determine winner
+                    //Console.WriteLine("horiz: " + horizontal);
+                    //Console.WriteLine("vert: " + vertical);
+                    //Console.WriteLine("forwardDiag: " + forwardDiag);
+                    //Console.WriteLine("backDiag: " + backDiag);
+
+                    if (horizontal == 4 || vertical == 4 || forwardDiag == 4 || backDiag == 4) //if there are any wins, determine winner
                         return isPlayerMove ? player1Win : player2Win;
 
                     if (isFull()) //if the board is full and no one won, then its a tie

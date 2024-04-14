@@ -32,7 +32,13 @@ namespace ConnectFour_Group3
             {
                 if (copy.makeMove(c)) //if you can make a move in this column, make it
                 {
-                    score = miniMax(copy, depth, false, -1); //run algorithm
+                    score = miniMax(copy, depth, false, c); //run algorithm
+
+                    Console.WriteLine(score);
+
+                    copy.displayBoardToConsole();
+
+                    Console.WriteLine();
 
                     copy.removeCell(c); //remove the move
 
@@ -61,24 +67,23 @@ namespace ConnectFour_Group3
 
             board.makeMove(col);
 
+            Console.WriteLine("===============================");
+
             return col;
         }
 
         private int miniMax(Board copy, int depth, bool isMax, int col)
         {
-            if(!(col == -1))
-            {
-                int whoWon = copy.checkWinV2(col);
+            int whoWon = copy.checkWinV2(col);
 
-                if (whoWon == -1)
-                    return depth;
+            if (whoWon == 1)
+                return depth;
 
-                else if (whoWon == 1)
-                    return -depth;
+            else if (whoWon == -1)
+                return -depth;
 
-                else if (whoWon == 0 || depth <= 0)
-                    return 0;
-            }
+            else if (whoWon == 0 || depth <= 0)
+                return 0;
 
             int bestScore = isMax ? -1 : 1;
             int score;
