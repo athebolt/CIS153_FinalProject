@@ -27,11 +27,11 @@ namespace ConnectFour_Group3
             gameStats.loadStats();
 
             ctrPlayerWins.Text = gameStats.playerWins.ToString();
-            ctrAIWins.Text = gameStats.aiWins.ToString();
-            ctrPlayerWinPer.Text = gameStats.playerWinP.ToString();
-            ctrAIWinPer.Text = gameStats.aiWinP.ToString();
-
-            // adding total games and ties once Tristan adds the labels.
+            ctrAIWins.Text = gameStats.secondPlayerWins.ToString();
+            ctrPlayerWinPer.Text = gameStats.playerWinPct.ToString();
+            ctrAIWinPer.Text = gameStats.secondPlayerWinPct.ToString();
+            ctrTotalGames.Text = gameStats.totalGames.ToString();
+            ctrTies.Text = gameStats.ties.ToString();
         }
 
         private void Stats_FormClosed(object sender, FormClosedEventArgs e)

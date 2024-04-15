@@ -16,12 +16,12 @@ namespace ConnectFour_Group3
     
     internal class GameStats
     {
-        public int aiWins;
+        public int secondPlayerWins;
         public int playerWins;
         public int ties;
         public int totalGames;
-        public double playerWinP;
-        public double aiWinP;
+        public double playerWinPct;
+        public double secondPlayerWinPct;
 
         public void saveStats()
         {
@@ -30,7 +30,7 @@ namespace ConnectFour_Group3
             string stCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string stFile = Path.Combine(stCurrentDirectory, @"..\..\GameData\SaveData.txt");
             string stFilePath = Path.GetFullPath(stFile);
-            string newLine = $"{aiWins},{playerWins},{ties},{totalGames},{playerWinP:0.00},{aiWinP:0.00}";
+            string newLine = $"{secondPlayerWins},{playerWins},{ties},{totalGames},{playerWinPct:0.00},{secondPlayerWinPct:0.00}";
 
             // Overwrite the file content with the new line
             File.WriteAllText(stFilePath, newLine);
@@ -53,7 +53,7 @@ namespace ConnectFour_Group3
                         string[] stats = line.Split(',');
                         if (stats.Length == 6)
                         {
-                            aiWins = int.Parse(stats[0]);
+                            secondPlayerWins = int.Parse(stats[0]);
                             playerWins = int.Parse(stats[1]);
                             ties = int.Parse(stats[2]);
                             totalGames = int.Parse(stats[3]);
@@ -82,11 +82,11 @@ namespace ConnectFour_Group3
             switch (outcome)
             {
                 // from board class
-                case 1:
+                case -1:
                     playerWins++;
                     break;
-                case -1:
-                    aiWins++;
+                case 1:
+                    secondPlayerWins++;
                     break;
                 case 0:
                     ties++;
@@ -97,27 +97,27 @@ namespace ConnectFour_Group3
         }
         public void calcWinPercentage()
         {
-            totalGames = aiWins + playerWins + ties;
+            totalGames = secondPlayerWins + playerWins + ties;
 
             if (totalGames > 0)
             {
-                aiWinP = (double)aiWins / totalGames * 100;
-                playerWinP = (double)playerWins / totalGames * 100;
+                secondPlayerWinPct = (double)secondPlayerWins / totalGames * 100;
+                playerWinPct = (double)playerWins / totalGames * 100;
             }
             else
             {
-                aiWinP = 0;
-                playerWinP = 0;
+                secondPlayerWinPct = 0;
+                playerWinPct = 0;
             }
         }
         public void initializeStats()
         {
-            aiWins = 0;
+            secondPlayerWins = 0;
             playerWins = 0;
             ties = 0;
             totalGames = 0;
-            playerWinP = 0;
-            aiWinP = 0;
+            playerWinPct = 0;
+            secondPlayerWinPct = 0;
         }
     }
 }

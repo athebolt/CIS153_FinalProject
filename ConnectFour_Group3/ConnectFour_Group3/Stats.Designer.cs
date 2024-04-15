@@ -37,6 +37,10 @@
             this.ctrAIWins = new System.Windows.Forms.Label();
             this.ctrAIWinPer = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.lblTotalGames = new System.Windows.Forms.Label();
+            this.ctrTotalGames = new System.Windows.Forms.Label();
+            this.ctrTies = new System.Windows.Forms.Label();
+            this.lblTies = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPlayerWins
@@ -63,27 +67,27 @@
             // 
             this.lblAIwins.AutoSize = true;
             this.lblAIwins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAIwins.Location = new System.Drawing.Point(860, 87);
+            this.lblAIwins.Location = new System.Drawing.Point(775, 90);
             this.lblAIwins.Name = "lblAIwins";
-            this.lblAIwins.Size = new System.Drawing.Size(136, 36);
+            this.lblAIwins.Size = new System.Drawing.Size(222, 36);
             this.lblAIwins.TabIndex = 2;
-            this.lblAIwins.Text = "AI Wins:";
+            this.lblAIwins.Text = "Player 2 Wins:";
             // 
             // lblAIwinper
             // 
             this.lblAIwinper.AutoSize = true;
             this.lblAIwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAIwinper.Location = new System.Drawing.Point(860, 226);
+            this.lblAIwinper.Location = new System.Drawing.Point(775, 228);
             this.lblAIwinper.Name = "lblAIwinper";
-            this.lblAIwinper.Size = new System.Drawing.Size(157, 36);
+            this.lblAIwinper.Size = new System.Drawing.Size(243, 36);
             this.lblAIwinper.TabIndex = 3;
-            this.lblAIwinper.Text = "AI Win %:";
+            this.lblAIwinper.Text = "Player 2 Win %:";
             // 
             // ctrPlayerWins
             // 
             this.ctrPlayerWins.AutoSize = true;
             this.ctrPlayerWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWins.Location = new System.Drawing.Point(376, 87);
+            this.ctrPlayerWins.Location = new System.Drawing.Point(361, 88);
             this.ctrPlayerWins.Name = "ctrPlayerWins";
             this.ctrPlayerWins.Size = new System.Drawing.Size(32, 36);
             this.ctrPlayerWins.TabIndex = 4;
@@ -93,7 +97,7 @@
             // 
             this.ctrPlayerWinPer.AutoSize = true;
             this.ctrPlayerWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWinPer.Location = new System.Drawing.Point(376, 226);
+            this.ctrPlayerWinPer.Location = new System.Drawing.Point(360, 228);
             this.ctrPlayerWinPer.Name = "ctrPlayerWinPer";
             this.ctrPlayerWinPer.Size = new System.Drawing.Size(32, 36);
             this.ctrPlayerWinPer.TabIndex = 5;
@@ -103,7 +107,7 @@
             // 
             this.ctrAIWins.AutoSize = true;
             this.ctrAIWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWins.Location = new System.Drawing.Point(1036, 87);
+            this.ctrAIWins.Location = new System.Drawing.Point(1024, 90);
             this.ctrAIWins.Name = "ctrAIWins";
             this.ctrAIWins.Size = new System.Drawing.Size(32, 36);
             this.ctrAIWins.TabIndex = 6;
@@ -113,7 +117,7 @@
             // 
             this.ctrAIWinPer.AutoSize = true;
             this.ctrAIWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWinPer.Location = new System.Drawing.Point(1036, 243);
+            this.ctrAIWinPer.Location = new System.Drawing.Point(1024, 228);
             this.ctrAIWinPer.Name = "ctrAIWinPer";
             this.ctrAIWinPer.Size = new System.Drawing.Size(32, 36);
             this.ctrAIWinPer.TabIndex = 7;
@@ -130,11 +134,55 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // lblTotalGames
+            // 
+            this.lblTotalGames.AutoSize = true;
+            this.lblTotalGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGames.Location = new System.Drawing.Point(269, 363);
+            this.lblTotalGames.Name = "lblTotalGames";
+            this.lblTotalGames.Size = new System.Drawing.Size(211, 36);
+            this.lblTotalGames.TabIndex = 9;
+            this.lblTotalGames.Text = "Total Games :";
+            // 
+            // ctrTotalGames
+            // 
+            this.ctrTotalGames.AutoSize = true;
+            this.ctrTotalGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrTotalGames.Location = new System.Drawing.Point(485, 364);
+            this.ctrTotalGames.Name = "ctrTotalGames";
+            this.ctrTotalGames.Size = new System.Drawing.Size(32, 36);
+            this.ctrTotalGames.TabIndex = 10;
+            this.ctrTotalGames.Text = "0";
+            // 
+            // ctrTies
+            // 
+            this.ctrTies.AutoSize = true;
+            this.ctrTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrTies.Location = new System.Drawing.Point(779, 365);
+            this.ctrTies.Name = "ctrTies";
+            this.ctrTies.Size = new System.Drawing.Size(32, 36);
+            this.ctrTies.TabIndex = 12;
+            this.ctrTies.Text = "0";
+            // 
+            // lblTies
+            // 
+            this.lblTies.AutoSize = true;
+            this.lblTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTies.Location = new System.Drawing.Point(680, 364);
+            this.lblTies.Name = "lblTies";
+            this.lblTies.Size = new System.Drawing.Size(93, 36);
+            this.lblTies.TabIndex = 11;
+            this.lblTies.Text = "Ties :";
+            // 
             // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1462, 830);
+            this.Controls.Add(this.ctrTies);
+            this.Controls.Add(this.lblTies);
+            this.Controls.Add(this.ctrTotalGames);
+            this.Controls.Add(this.lblTotalGames);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.ctrAIWinPer);
             this.Controls.Add(this.ctrAIWins);
@@ -163,5 +211,9 @@
         private System.Windows.Forms.Label ctrAIWins;
         private System.Windows.Forms.Label ctrAIWinPer;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblTotalGames;
+        private System.Windows.Forms.Label ctrTotalGames;
+        private System.Windows.Forms.Label ctrTies;
+        private System.Windows.Forms.Label lblTies;
     }
 }
