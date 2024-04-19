@@ -35,7 +35,9 @@ namespace ConnectFour_Group3
         {
             InitializeComponent();
 
-            titlePage = tp; 
+            titlePage = tp;
+
+            gamemode = gm;
             
             fillButtonArray();
 
@@ -81,7 +83,7 @@ namespace ConnectFour_Group3
                     checkGameOver(int.Parse(tag));
 
                     //Make sure the game hasn't ended
-                    if (!connectFourBoard.isGameOver())
+                    if (!connectFourBoard.isGameOver() && gamemode == 0)
                     {
                         //Make the AI's move
                         int col = aiPlayer.aiMakeMove(connectFourBoard);
@@ -104,7 +106,7 @@ namespace ConnectFour_Group3
 
                 connectFourBoard.lockBoard();
 
-                GameOver gameOver = new GameOver(titlePage, this, winner, true);
+                GameOver gameOver = new GameOver(titlePage, this, winner, (gamemode == 0 ? true : false));
                 gameOver.Show();
                 this.Hide();
             }
