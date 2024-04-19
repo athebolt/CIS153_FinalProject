@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,10 @@ namespace ConnectFour_Group3
 
         //if true, no one can play on the board
         private bool isLocked = false;
+
+        //for checkWin
+        private bool boardChanged = false;
+        private int winner = -2;
 
         #region Constructors
 
@@ -176,89 +181,102 @@ namespace ConnectFour_Group3
         //only checks the last placed piece if it makes a win (rather than every cell)
         public int checkWinV2(int col)
         {
-            //what is returned for each outcome
-            int player1Win = 1;
-            int player2Win = -1;
-            int tie        = 0;
-            int noWin      = -2;
-
-            //finding the last placed piece's value and pos
-            for (int row = 0; row < board.GetLength(0); row++)
+            if(boardChanged)
             {
-                if (!board[row, col].isEmpty())
+                boardChanged = false;
+
+                //what is returned for each outcome
+                int player1Win = 1;
+                int player2Win = -1;
+                int tie = 0;
+                int noWin = -2;
+
+                //finding the last placed piece's value and pos
+                for (int row = 0; row < board.GetLength(0); row++)
                 {
-                    //determines if it is possible to check in a direction
-                    bool left = 0 <= col - 3;
-                    bool right = getCols() > col + 3;
-                    bool down = 0 <= row - 3;
-                    bool up = getRows() > row + 3;
-
-                    bool leftUp = left && up;
-                    bool rightUp = right && up;
-                    bool leftDown = left && down;
-                    bool rightDown = right && down;
-
-                    int horizontal = 1;
-                    int vertical = 1;
-                    int forwardDiag = 1;
-                    int backDiag = 1;
-
-                    for (int i = 1; i < 4; i++)
+                    if (!board[row, col].isEmpty())
                     {
-                        //checking in each direction to see if it matches the placed piece
-                        left  = left  && board[row, col].getVal() == board[row, col - i].getVal();
-                        if (left)
-                            horizontal++;
+                        int horizontal = 1;
+                        int vertical = 1;
+                        int forwardDiag = 1;
+                        int backDiag = 1;
 
-                        right = right && board[row, col].getVal() == board[row, col + i].getVal();
-                        if (right)
-                            horizontal++;
+                        for (int i = 1; i < 4; i++)
+                        {
+                            bool left = 0 <= col - i;
+                            bool right = getCols() > col + i;
+                            bool down = 0 <= row - i;
+                            bool up = getRows() > row + i;
 
-                        down  = down  && board[row, col].getVal() == board[row - i, col].getVal();
-                        if (down)
-                            vertical++;
+                            bool leftUp = left && up;
+                            bool rightUp = right && up;
+                            bool leftDown = left && down;
+                            bool rightDown = right && down;
 
-                        up    = up    && board[row, col].getVal() == board[row + i, col].getVal();
-                        if (up)
-                            vertical++;
+                            //checking in each direction to see if it matches the placed piece
+                            left = left && board[row, col].getVal() == board[row, col - i].getVal();
+                            if (left)
+                                horizontal++;
 
-                        //diagonal checks
-                        leftUp    = leftUp    && board[row, col].getVal() == board[row + i, col - i].getVal();
-                        if (leftUp)
-                            backDiag++;
+                            right = right && board[row, col].getVal() == board[row, col + i].getVal();
+                            if (right)
+                                horizontal++;
 
-                        rightUp   = rightUp   && board[row, col].getVal() == board[row + i, col + i].getVal();
-                        if(rightUp)
-                            forwardDiag++;
+                            down = down && board[row, col].getVal() == board[row - i, col].getVal();
+                            if (down)
+                                vertical++;
 
-                        leftDown  = leftDown  && board[row, col].getVal() == board[row - i, col - i].getVal();
-                        if (leftDown)
-                            forwardDiag++;
+                            up = up && board[row, col].getVal() == board[row + i, col].getVal();
+                            if (up)
+                                vertical++;
 
-                        rightDown = rightDown && board[row, col].getVal() == board[row - i, col + i].getVal();
-                        if (rightDown)
-                            backDiag++;
+                            //diagonal checks
+                            leftUp = leftUp && board[row, col].getVal() == board[row + i, col - i].getVal();
+                            if (leftUp)
+                                backDiag++;
 
-                        if (!left && !right && !up && !down && !leftUp && !leftDown && !rightUp && !rightDown) //if no wins are possible, skip checking
-                            break;
+                            rightUp = rightUp && board[row, col].getVal() == board[row + i, col + i].getVal();
+                            if (rightUp)
+                                forwardDiag++;
+
+                            leftDown = leftDown && board[row, col].getVal() == board[row - i, col - i].getVal();
+                            if (leftDown)
+                                forwardDiag++;
+
+                            rightDown = rightDown && board[row, col].getVal() == board[row - i, col + i].getVal();
+                            if (rightDown)
+                                backDiag++;
+
+                            if (!left && !right && !up && !down && !leftUp && !leftDown && !rightUp && !rightDown) //if no wins are possible, skip checking
+                                break;
+                        }
+
+                        //Console.WriteLine("horiz: " + horizontal);
+                        //Console.WriteLine("vert: " + vertical);
+                        //Console.WriteLine("forwardDiag: " + forwardDiag);
+                        //Console.WriteLine("backDiag: " + backDiag);
+
+                        if (horizontal == 4 || vertical == 4 || forwardDiag == 4 || backDiag == 4) //if there are any wins, determine winner
+                        {
+                            winner = !isPlayerMove ? player1Win : player2Win;
+                            return !isPlayerMove ? player1Win : player2Win;
+                        }
+
+                        if (isFull()) //if the board is full and no one won, then its a tie
+                        {
+                            winner = tie;
+                            return tie;
+                        }
+
+                        break;
                     }
-
-                    //Console.WriteLine("horiz: " + horizontal);
-                    //Console.WriteLine("vert: " + vertical);
-                    //Console.WriteLine("forwardDiag: " + forwardDiag);
-                    //Console.WriteLine("backDiag: " + backDiag);
-
-                    if (horizontal == 4 || vertical == 4 || forwardDiag == 4 || backDiag == 4) //if there are any wins, determine winner
-                        return isPlayerMove ? player1Win : player2Win;
-
-                    if (isFull()) //if the board is full and no one won, then its a tie
-                        return tie;
-
-                    break;
                 }
+
+                winner = noWin;
+                return noWin;
             }
 
-            return noWin;
+            return winner;
         }
 
         /// <summary>
@@ -276,6 +294,7 @@ namespace ConnectFour_Group3
                     moveComplete = true;
                     board[i, col].setVal(!(isPlayerMove ^ playerStarts) ? 'X' : 'O');
                     isPlayerMove = !isPlayerMove;
+                    boardChanged = true;
                     break;
                 }
             }
@@ -370,6 +389,7 @@ namespace ConnectFour_Group3
                 {
                     isPlayerMove = !isPlayerMove;
                     board[i, col].setVal(' ');
+                    boardChanged = true;
                     break;
                 }
             }

@@ -76,10 +76,10 @@ namespace ConnectFour_Group3
         {
             int whoWon = copy.checkWinV2(col);
 
-            if (whoWon == 1)
+            if (whoWon == -1)
                 return depth;
 
-            else if (whoWon == -1)
+            else if (whoWon == 1)
                 return -depth;
 
             else if (whoWon == 0 || depth <= 0)

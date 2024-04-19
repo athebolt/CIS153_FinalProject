@@ -77,7 +77,7 @@ namespace ConnectFour_Group3
         {
             totalGames++; // change so this doesnt update at end?
 
-            MessageBox.Show($"game outcome : {outcome}"); // Debug line
+            //MessageBox.Show($"game outcome : {outcome}"); // Debug line
 
             switch (outcome)
             {

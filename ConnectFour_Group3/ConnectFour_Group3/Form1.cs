@@ -44,10 +44,6 @@ namespace ConnectFour_Group3
 
             gameData.loadStats();
 
-            //connectFourBoard.makeMove(6);
-
-            //connectFourBoard.checkWinV3(6);
-
             //whenever the AI needs to make a move, just use this format!
             //aiPlayer.aiMakeMove(connectFourBoard);
 
@@ -82,9 +78,7 @@ namespace ConnectFour_Group3
                     Update();
 
                     //check for a win, if the game is over, lock the board
-                    if (!(connectFourBoard.checkWinV2(int.Parse(tag)) == -2))
-                        connectFourBoard.lockBoard();
-                        checkGameOutcome(int.Parse(tag));
+                    checkGameOver(int.Parse(tag));
 
                     //Make sure the game hasn't ended
                     if (!connectFourBoard.isGameOver())
@@ -94,21 +88,25 @@ namespace ConnectFour_Group3
                         connectFourBoard.displayToForm();
 
                         //check for a win, if the game is over, lock the board
-                        if (!(connectFourBoard.checkWinV2(col) == -2))
-                            connectFourBoard.lockBoard();
-                            checkGameOutcome(col);                            
+                        checkGameOver(col);                            
                     }
                 }
             }
         }
-        // checks game outcome if not -2 (meaning concluded in some state) and updates those stats.
-        private void checkGameOutcome(int col)
-        {
-            int gameOutcome = connectFourBoard.checkWinV2(col);
 
-            if (gameOutcome != -2)
-            {                
-                gameData.updateStats(gameOutcome);
+        private void checkGameOver(int col)
+        {
+            if (connectFourBoard.checkWinV2(col) != -2)
+            {
+                int winner = connectFourBoard.checkWinV2(col);
+
+                gameData.updateStats(winner);
+
+                connectFourBoard.lockBoard();
+
+                GameOver gameOver = new GameOver(titlePage, this, winner, true);
+                gameOver.Show();
+                this.Hide();
             }
         }
 
