@@ -80,6 +80,7 @@
             this.box12 = new System.Windows.Forms.PictureBox();
             this.box11 = new System.Windows.Forms.PictureBox();
             this.lblTurnDisp = new System.Windows.Forms.Label();
+            this.btn_Back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.box66)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box65)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box67)).BeginInit();
@@ -556,11 +557,22 @@
             this.lblTurnDisp.TabIndex = 54;
             this.lblTurnDisp.Text = "Player 1";
             // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(12, 12);
+            this.btn_Back.Name = "btn_Back";
+            this.btn_Back.Size = new System.Drawing.Size(243, 66);
+            this.btn_Back.TabIndex = 55;
+            this.btn_Back.Text = "Return to Main Menu";
+            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 846);
+            this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.lblTurnDisp);
             this.Controls.Add(this.box66);
             this.Controls.Add(this.box65);
@@ -714,6 +726,7 @@
         private System.Windows.Forms.PictureBox box62;
         private System.Windows.Forms.PictureBox box61;
         private System.Windows.Forms.Label lblTurnDisp;
+        private System.Windows.Forms.Button btn_Back;
     }
 }
 

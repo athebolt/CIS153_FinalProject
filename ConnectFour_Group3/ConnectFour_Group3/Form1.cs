@@ -116,5 +116,11 @@ namespace ConnectFour_Group3
         {
             titlePage.Show();
         }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            titlePage.Show();
+            this.Hide();
+        }
     }
 }
