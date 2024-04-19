@@ -44,6 +44,16 @@ namespace ConnectFour_Group3
 
             gameData.loadStats();
 
+            connectFourBoard.makeMove(0);
+            connectFourBoard.makeMove(6);
+            connectFourBoard.makeMove(0);
+            connectFourBoard.makeMove(5);
+            connectFourBoard.makeMove(0);
+            connectFourBoard.makeMove(2);
+            connectFourBoard.makeMove(1);
+            connectFourBoard.makeMove(3);
+            Console.WriteLine(connectFourBoard.checkWinV2(3));
+
             //whenever the AI needs to make a move, just use this format!
             //aiPlayer.aiMakeMove(connectFourBoard);
 

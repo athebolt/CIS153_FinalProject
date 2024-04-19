@@ -196,13 +196,27 @@ namespace ConnectFour_Group3
                 {
                     if (!board[row, col].isEmpty())
                     {
+                        //the possible ways to win
                         int horizontal = 1;
                         int vertical = 1;
                         int forwardDiag = 1;
                         int backDiag = 1;
 
+                        //counter for each direction
+                        int leftCnt = 0;
+                        int rightCnt = 0;
+                        int upCnt = 0;
+                        int downCnt = 0;
+
+                        //diagonal counters
+                        int leftUpCnt = 0;
+                        int rightUpCnt = 0;
+                        int leftDownCnt = 0;
+                        int rightDownCnt = 0;
+
                         for (int i = 1; i < 4; i++)
                         {
+                            //determines if we can go in a direction
                             bool left = 0 <= col - i;
                             bool right = getCols() > col + i;
                             bool down = 0 <= row - i;
@@ -216,45 +230,57 @@ namespace ConnectFour_Group3
                             //checking in each direction to see if it matches the placed piece
                             left = left && board[row, col].getVal() == board[row, col - i].getVal();
                             if (left)
-                                horizontal++;
+                                leftCnt++;
+                            else
+                                leftCnt = 0;
 
                             right = right && board[row, col].getVal() == board[row, col + i].getVal();
                             if (right)
-                                horizontal++;
+                                rightCnt++;
+                            else
+                                rightCnt = 0;
 
                             down = down && board[row, col].getVal() == board[row - i, col].getVal();
                             if (down)
-                                vertical++;
+                                downCnt++;
+                            else
+                                downCnt = 0;
 
                             up = up && board[row, col].getVal() == board[row + i, col].getVal();
                             if (up)
-                                vertical++;
+                                upCnt++;
+                            else 
+                                upCnt = 0;
+
 
                             //diagonal checks
                             leftUp = leftUp && board[row, col].getVal() == board[row + i, col - i].getVal();
                             if (leftUp)
-                                backDiag++;
+                                leftUpCnt++;
+                            else
+                                leftUpCnt = 0;
 
                             rightUp = rightUp && board[row, col].getVal() == board[row + i, col + i].getVal();
                             if (rightUp)
-                                forwardDiag++;
+                                rightUpCnt++;
+                            else
+                                rightUpCnt = 0;
 
                             leftDown = leftDown && board[row, col].getVal() == board[row - i, col - i].getVal();
                             if (leftDown)
-                                forwardDiag++;
+                                leftDownCnt++;
+                            else
+                                leftDownCnt = 0;
 
                             rightDown = rightDown && board[row, col].getVal() == board[row - i, col + i].getVal();
                             if (rightDown)
-                                backDiag++;
+                                rightDownCnt++;
+                            else
+                                rightDownCnt = 0;
 
                             if (!left && !right && !up && !down && !leftUp && !leftDown && !rightUp && !rightDown) //if no wins are possible, skip checking
                                 break;
                         }
-
-                        //Console.WriteLine("horiz: " + horizontal);
-                        //Console.WriteLine("vert: " + vertical);
-                        //Console.WriteLine("forwardDiag: " + forwardDiag);
-                        //Console.WriteLine("backDiag: " + backDiag);
 
                         if (horizontal == 4 || vertical == 4 || forwardDiag == 4 || backDiag == 4) //if there are any wins, determine winner
                         {

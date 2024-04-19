@@ -48,7 +48,7 @@ namespace ConnectFour_Group3
 
         private void btn_go_playAgain_Click(object sender, EventArgs e)
         {
-            form1.Show();
+            form1.Close();
             this.Close();
         }
 
