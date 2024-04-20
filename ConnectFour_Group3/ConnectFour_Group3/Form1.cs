@@ -18,12 +18,12 @@ namespace ConnectFour_Group3
         //The gamemode that the user picked (0 for AI, 1 for two player)
         private int gamemode;
 
-        public Board connectFourBoard;
+        private Board connectFourBoard;
         private GameStats gameData;
 
-        public MiniMax aiPlayer = new MiniMax();
+        private MiniMax aiPlayer = new MiniMax();
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
-        public PictureBox[,] grid;
+        private PictureBox[,] grid;
 
 
         /// <summary>
@@ -114,13 +114,14 @@ namespace ConnectFour_Group3
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            titlePage.Show();
+            if(!connectFourBoard.isGameOver())
+                titlePage.Show();
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
             titlePage.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

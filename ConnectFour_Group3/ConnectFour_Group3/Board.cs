@@ -196,91 +196,103 @@ namespace ConnectFour_Group3
                 {
                     if (!board[row, col].isEmpty())
                     {
-                        //the possible ways to win
                         int horizontal = 1;
                         int vertical = 1;
                         int forwardDiag = 1;
                         int backDiag = 1;
 
-                        //counter for each direction
-                        int leftCnt = 0;
-                        int rightCnt = 0;
-                        int upCnt = 0;
-                        int downCnt = 0;
+                        //determines if we can go in a direction
+                        bool left;
+                        bool right;
+                        bool up;
+                        bool down;
 
-                        //diagonal counters
-                        int leftUpCnt = 0;
-                        int rightUpCnt = 0;
-                        int leftDownCnt = 0;
-                        int rightDownCnt = 0;
+                        bool leftUp;
+                        bool leftDown;
+                        bool rightUp;
+                        bool rightDown;
+
+                        //makes sure that all the pieces are touching (idk how else to explain)
+                        bool leftRow = true;
+                        bool rightRow = true;
+                        bool upRow = true;
+                        bool downRow = true;
+
+                        bool leftUpRow = true;
+                        bool leftDownRow = true;
+                        bool rightUpRow = true;
+                        bool rightDownRow = true;
 
                         for (int i = 1; i < 4; i++)
                         {
                             //determines if we can go in a direction
-                            bool left = 0 <= col - i;
-                            bool right = getCols() > col + i;
-                            bool down = 0 <= row - i;
-                            bool up = getRows() > row + i;
+                            left = 0 <= col - i;
+                            right = getCols() > col + i;
+                            up = 0 <= row - i;
+                            down = getRows() > row + i;
 
-                            bool leftUp = left && up;
-                            bool rightUp = right && up;
-                            bool leftDown = left && down;
-                            bool rightDown = right && down;
+                            leftUp = left && up;
+                            leftDown = left && down;
+                            rightUp = right && up;
+                            rightDown = right && down;
+
+                            //Console.WriteLine("leftUp: " + leftUp);
+                            //Console.WriteLine("rightUp: " +  rightUp);
+                            //Console.WriteLine("leftDown: " + leftDown);
+                            //Console.WriteLine("rightDown:" + rightDown);
+                            //Console.WriteLine();
+                            //Console.WriteLine();
 
                             //checking in each direction to see if it matches the placed piece
-                            left = left && board[row, col].getVal() == board[row, col - i].getVal();
-                            if (left)
-                                leftCnt++;
+                            if (left && board[row, col].getVal() == board[row, col - i].getVal() && leftRow)
+                                horizontal++;
                             else
-                                leftCnt = 0;
+                                leftRow = false;
 
-                            right = right && board[row, col].getVal() == board[row, col + i].getVal();
-                            if (right)
-                                rightCnt++;
+                            if (right && board[row, col].getVal() == board[row, col + i].getVal() && rightRow)
+                                horizontal++;
                             else
-                                rightCnt = 0;
+                                rightRow = false;
 
-                            down = down && board[row, col].getVal() == board[row - i, col].getVal();
-                            if (down)
-                                downCnt++;
+                            if (down && board[row, col].getVal() == board[row + i, col].getVal() && downRow)
+                                vertical++;
                             else
-                                downCnt = 0;
+                                downRow = false;
 
-                            up = up && board[row, col].getVal() == board[row + i, col].getVal();
-                            if (up)
-                                upCnt++;
-                            else 
-                                upCnt = 0;
-
+                            if (up && board[row, col].getVal() == board[row - i, col].getVal() && upRow)
+                                vertical++;
+                            else
+                                upRow = false;
 
                             //diagonal checks
-                            leftUp = leftUp && board[row, col].getVal() == board[row + i, col - i].getVal();
-                            if (leftUp)
-                                leftUpCnt++;
+                            if (leftUp && board[row, col].getVal() == board[row - i, col - i].getVal() && leftUpRow)
+                                backDiag++;
                             else
-                                leftUpCnt = 0;
+                                leftUpRow = false;
 
-                            rightUp = rightUp && board[row, col].getVal() == board[row + i, col + i].getVal();
-                            if (rightUp)
-                                rightUpCnt++;
+                            if (rightUp && board[row, col].getVal() == board[row - i, col + i].getVal() && rightUpRow)
+                                forwardDiag++;
                             else
-                                rightUpCnt = 0;
+                                rightUpRow = false;
 
-                            leftDown = leftDown && board[row, col].getVal() == board[row - i, col - i].getVal();
-                            if (leftDown)
-                                leftDownCnt++;
+                            if (leftDown && board[row, col].getVal() == board[row + i, col - i].getVal() && leftDownRow)
+                                forwardDiag++;
                             else
-                                leftDownCnt = 0;
+                                leftDownRow = false;
 
-                            rightDown = rightDown && board[row, col].getVal() == board[row - i, col + i].getVal();
-                            if (rightDown)
-                                rightDownCnt++;
+                            if (rightDown && board[row, col].getVal() == board[row + i, col + i].getVal() && rightDownRow)
+                                backDiag++;
                             else
-                                rightDownCnt = 0;
-
+                                rightDownRow = false;
+                            
                             if (!left && !right && !up && !down && !leftUp && !leftDown && !rightUp && !rightDown) //if no wins are possible, skip checking
                                 break;
                         }
+
+                        //Console.WriteLine("horiz: " + (leftCnt + rightCnt + 1));
+                        //Console.WriteLine("vert: " + (upCnt + downCnt + 1));
+                        //Console.WriteLine("forward: " + rightUpCnt + " + " + leftDownCnt);
+                        //Console.WriteLine("backward: " + leftUpCnt + " + " + rightDownCnt);
 
                         if (horizontal == 4 || vertical == 4 || forwardDiag == 4 || backDiag == 4) //if there are any wins, determine winner
                         {
