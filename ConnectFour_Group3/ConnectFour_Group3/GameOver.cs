@@ -30,30 +30,44 @@ namespace ConnectFour_Group3
             isOnePlayer = iop;
             playAgain = false;
 
-            if(w == 0)
+            if (w == 0)
             {
                 lbl_go_whoWon.Text = "It's a tie.";
             }
-            else if(w == 1)
+            else if (w == 1)
             {
-                lbl_go_whoWon.Text = "Player 1 wins!";
+                if (isOnePlayer)
+                {
+                    lbl_go_whoWon.Text = "You Win!";
+                }
+                else
+                {
+                    lbl_go_whoWon.Text = "Player 1 Wins!";
+                }
 
-                lbl_go_whoWon.ForeColor = Color.Red;
+                lbl_go_playerWins.Font = new Font(Font, FontStyle.Bold);
+                lbl_go_playerWinP.ForeColor = Color.Green;
+                lbl_go_AIWinP.ForeColor = Color.Red;
             }
             else
             {
                 if (isOnePlayer)
                     lbl_go_whoWon.Text = "AI wins.";
                 else
-                    lbl_go_whoWon.Text = "Player 2 wins!";
+                    lbl_go_whoWon.Text = "Player 2 Wins!";
 
-                lbl_go_whoWon.ForeColor = Color.Blue;
+                lbl_go_AIWins.Font = new Font(lbl_go_AIWins.Font, FontStyle.Bold);
+                lbl_go_playerWinP.ForeColor = Color.Red;
+                lbl_go_AIWinP.ForeColor = Color.Green;
             }
+
+            if(isOnePlayer)
+                showStats();
         }
 
         private void btn_go_playAgain_Click(object sender, EventArgs e)
         {
-            form1 = new Form1(titlePage, isOnePlayer? 0 : 1);
+            form1 = new Form1(titlePage, isOnePlayer ? 0 : 1);
             form1.Show();
             playAgain = true;
             this.Close();
@@ -62,6 +76,8 @@ namespace ConnectFour_Group3
         private void btn_go_review_Click(object sender, EventArgs e)
         {
             form1.Show();
+
+            btn_go_review.Enabled = false;
         }
 
         private void btn_go_exit_Click(object sender, EventArgs e)
@@ -73,8 +89,29 @@ namespace ConnectFour_Group3
 
         private void GameOver_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(!playAgain)
+            if (!playAgain)
                 titlePage.Show();
+        }
+
+        private void showStats()
+        {
+            GameStats stats = new GameStats();
+
+            stats.loadStats();
+
+            lbl_go_playerWins.Visible = true;
+            lbl_go_playerWinP.Visible = true;
+            lbl_go_AIWins.Visible = true;
+            lbl_go_AIWinP.Visible = true;
+            lbl_go_totalGames.Visible = true;
+            lbl_go_ties.Visible = true;
+
+            lbl_go_playerWins.Text = "Player Wins: " + stats.playerWins.ToString();
+            lbl_go_playerWinP.Text = "Player Win %: " + stats.playerWinPct.ToString("0.00")+ "%";
+            lbl_go_AIWins.Text = "AI Wins: " + stats.secondPlayerWins.ToString();
+            lbl_go_AIWinP.Text = "AI Win %: " + stats.secondPlayerWinPct.ToString("0.00") + "%";
+            lbl_go_totalGames.Text = "Total Games: " + stats.totalGames.ToString();
+            lbl_go_ties.Text = "Ties: " + stats.ties.ToString();
         }
     }
 }

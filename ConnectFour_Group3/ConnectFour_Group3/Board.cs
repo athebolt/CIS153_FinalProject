@@ -294,7 +294,7 @@ namespace ConnectFour_Group3
                         //Console.WriteLine("forward: " + rightUpCnt + " + " + leftDownCnt);
                         //Console.WriteLine("backward: " + leftUpCnt + " + " + rightDownCnt);
 
-                        if (horizontal == 4 || vertical == 4 || forwardDiag == 4 || backDiag == 4) //if there are any wins, determine winner
+                        if (horizontal >= 4 || vertical >= 4 || forwardDiag >= 4 || backDiag >= 4) //if there are any wins, determine winner
                         {
                             winner = !isPlayerMove ? player1Win : player2Win;
                             return !isPlayerMove ? player1Win : player2Win;

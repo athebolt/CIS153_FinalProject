@@ -102,9 +102,12 @@ namespace ConnectFour_Group3
             {
                 int winner = connectFourBoard.checkWinV2(col);
 
-                gameData.updateStats(winner);
+                if(gamemode == 0)
+                    gameData.updateStats(winner);
 
                 connectFourBoard.lockBoard();
+
+                btn_Back.Enabled = false;
 
                 GameOver gameOver = new GameOver(titlePage, this, winner, (gamemode == 0 ? true : false));
                 gameOver.Show();
