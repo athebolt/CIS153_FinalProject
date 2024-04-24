@@ -25,6 +25,8 @@ namespace ConnectFour_Group3
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
         private PictureBox[,] grid;
 
+        private bool isPlayer2Turn = false;
+
 
         /// <summary>
         /// Starts the game, given the titlePage and the gamemode.
@@ -71,11 +73,15 @@ namespace ConnectFour_Group3
             //Make sure the game hasn't ended
             if (!connectFourBoard.isGameOver())
             {
+
                 //Make the player's move
                 string tag = (string)((Button)sender).Tag;                
 
                 if (connectFourBoard.makeMove(int.Parse(tag)))
                 {
+                    if(gamemode == 0)
+                        lblTurnDisp.Text = "AI's Turn...      ";
+
                     connectFourBoard.displayToForm();
                     Update();
 
@@ -90,8 +96,16 @@ namespace ConnectFour_Group3
                         connectFourBoard.displayToForm();
 
                         //check for a win, if the game is over, lock the board
-                        checkGameOver(col);                            
+                        checkGameOver(col);
                     }
+
+                    if (gamemode == 1)
+                        isPlayer2Turn = !isPlayer2Turn;
+
+                    if (isPlayer2Turn)
+                        lblTurnDisp.Text = "Player 2's Turn";
+                    else
+                        lblTurnDisp.Text = "Player 1's Turn";
                 }
             }
         }
@@ -109,7 +123,7 @@ namespace ConnectFour_Group3
 
                 btn_Back.Enabled = false;
 
-                GameOver gameOver = new GameOver(titlePage, this, winner, (gamemode == 0 ? true : false));
+                GameOver gameOver = new GameOver(titlePage, this, winner, gamemode == 0);
                 gameOver.Show();
                 this.Hide();
             }
