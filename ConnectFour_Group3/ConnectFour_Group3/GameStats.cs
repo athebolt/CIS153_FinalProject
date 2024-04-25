@@ -82,10 +82,10 @@ namespace ConnectFour_Group3
             switch (outcome)
             {
                 // from board class
-                case -1:
+                case 1:
                     playerWins++;
                     break;
-                case 1:
+                case -1:
                     secondPlayerWins++;
                     break;
                 case 0:
