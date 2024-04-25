@@ -181,6 +181,10 @@ namespace ConnectFour_Group3
         //only checks the last placed piece if it makes a win (rather than every cell)
         public int checkWinV2(int col)
         {
+            //a fail safe in case if the ai somehow didnt make a move
+            if (col == -2)
+                return -2;
+
             if(boardChanged)
             {
                 boardChanged = false;

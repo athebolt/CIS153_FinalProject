@@ -58,18 +58,23 @@ namespace ConnectFour_Group3
                 }
             }
 
-            int col;
-
-            if(bestMoves.Count > 0) //make move on the actual board
-                col = bestMoves[random.Next(0, bestMoves.Count)];
-            else
-                col = random.Next(0, board.getCols());
-
-            board.makeMove(col);
-
             Console.WriteLine("===============================");
 
-            return col;
+            //make a move on the actual board
+            if (bestMoves.Count > 0)
+            {
+                int col = bestMoves[random.Next(0, bestMoves.Count)];
+                board.makeMove(col);
+                return col;
+            }
+            else
+            {
+                for (int i = 0; i < board.getCols(); i++)
+                    if (board.makeMove(i))
+                        return i;
+            }
+
+            return -2;
         }
 
         private int miniMax(Board copy, int depth, bool isMax, int col)
