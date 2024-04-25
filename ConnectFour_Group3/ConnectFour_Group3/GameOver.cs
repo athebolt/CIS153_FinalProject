@@ -30,6 +30,8 @@ namespace ConnectFour_Group3
             isOnePlayer = iop;
             playAgain = false;
 
+            setFormLocation();
+
             if (w == 0)
             {
                 lbl_go_whoWon.Text = "It's a tie.";
@@ -112,6 +114,13 @@ namespace ConnectFour_Group3
             lbl_go_AIWinP.Text = "AI Win %: " + stats.secondPlayerWinPct.ToString("0.00") + "%";
             lbl_go_totalGames.Text = "Total Games: " + stats.totalGames.ToString();
             lbl_go_ties.Text = "Ties: " + stats.ties.ToString();
+        }
+        private void setFormLocation()
+        {
+            this.StartPosition = FormStartPosition.Manual;
+
+            this.Top = 400;
+            this.Left = 825;
         }
     }
 }

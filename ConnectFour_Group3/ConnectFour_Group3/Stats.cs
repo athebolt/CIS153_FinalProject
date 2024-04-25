@@ -22,6 +22,8 @@ namespace ConnectFour_Group3
 
             titlePage = tp;
 
+            setFormLocation();
+
             gameStats = new GameStats();
 
             gameStats.loadStats();
@@ -43,6 +45,13 @@ namespace ConnectFour_Group3
         {
             titlePage.Show();
             this.Close();
+        }
+        private void setFormLocation()
+        {
+            this.StartPosition = FormStartPosition.Manual;
+
+            this.Top = 300;
+            this.Left = 500;
         }
     }
 }

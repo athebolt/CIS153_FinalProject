@@ -19,6 +19,8 @@ namespace ConnectFour_Group3
         {
             InitializeComponent();
 
+            setFormLocation();
+
             titlePage = tp;
         }
 
@@ -48,6 +50,13 @@ namespace ConnectFour_Group3
         {
             if (!openedGame)
                 titlePage.Show();
+        }
+        private void setFormLocation()
+        {
+            this.StartPosition = FormStartPosition.Manual;
+
+            this.Top = 500;
+            this.Left = 1100;
         }
     }
 }

@@ -25,7 +25,8 @@ namespace ConnectFour_Group3
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
         private PictureBox[,] grid;
 
-        private bool isPlayer2Turn = false;
+        private bool isPlayer2Turn = false;     
+
 
 
         /// <summary>
@@ -36,11 +37,12 @@ namespace ConnectFour_Group3
         public Form1(TitlePage tp, int gm)
         {
             InitializeComponent();
-
-            titlePage = tp;
-
-            gamemode = gm;
             
+            titlePage = tp;           
+            gamemode = gm;
+
+            setFormLocation();
+
             fillButtonArray();
 
             connectFourBoard = new Board();
@@ -139,6 +141,13 @@ namespace ConnectFour_Group3
         {
             titlePage.Show();
             this.Close();
+        }
+        private void setFormLocation()
+        {
+            this.StartPosition = FormStartPosition.Manual;
+
+            this.Top = 200;
+            this.Left = 650;
         }
     }
 }

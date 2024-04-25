@@ -15,6 +15,7 @@ namespace ConnectFour_Group3
         public TitlePage()
         {
             InitializeComponent();
+            setFormLocation();
         }
 
         private void btnPlayGame_Click(object sender, EventArgs e)
@@ -34,6 +35,13 @@ namespace ConnectFour_Group3
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void setFormLocation()
+        {            
+            this.StartPosition = FormStartPosition.Manual;
+
+            this.Top = 400; 
+            this.Left = 825; 
         }
     }
 }
