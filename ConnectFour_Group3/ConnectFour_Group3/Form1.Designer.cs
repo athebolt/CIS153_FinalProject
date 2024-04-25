@@ -135,6 +135,8 @@
             this.btnCol1.Text = "Column 1";
             this.btnCol1.UseVisualStyleBackColor = true;
             this.btnCol1.Click += new System.EventHandler(this.playPiece);
+            this.btnCol1.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol1.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCol2
             // 
@@ -146,6 +148,8 @@
             this.btnCol2.Text = "Column 2";
             this.btnCol2.UseVisualStyleBackColor = true;
             this.btnCol2.Click += new System.EventHandler(this.playPiece);
+            this.btnCol2.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol2.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCol3
             // 
@@ -157,6 +161,8 @@
             this.btnCol3.Text = "Column 3";
             this.btnCol3.UseVisualStyleBackColor = true;
             this.btnCol3.Click += new System.EventHandler(this.playPiece);
+            this.btnCol3.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol3.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCol4
             // 
@@ -168,6 +174,8 @@
             this.btnCol4.Text = "Column 4";
             this.btnCol4.UseVisualStyleBackColor = true;
             this.btnCol4.Click += new System.EventHandler(this.playPiece);
+            this.btnCol4.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol4.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCol5
             // 
@@ -179,6 +187,8 @@
             this.btnCol5.Text = "Column 5";
             this.btnCol5.UseVisualStyleBackColor = true;
             this.btnCol5.Click += new System.EventHandler(this.playPiece);
+            this.btnCol5.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol5.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCol6
             // 
@@ -190,6 +200,8 @@
             this.btnCol6.Text = "Column 6";
             this.btnCol6.UseVisualStyleBackColor = true;
             this.btnCol6.Click += new System.EventHandler(this.playPiece);
+            this.btnCol6.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol6.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCol7
             // 
@@ -201,6 +213,8 @@
             this.btnCol7.Text = "Column 7";
             this.btnCol7.UseVisualStyleBackColor = true;
             this.btnCol7.Click += new System.EventHandler(this.playPiece);
+            this.btnCol7.MouseEnter += new System.EventHandler(this.btn_MouseHover);
+            this.btnCol7.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // imageList1
             // 

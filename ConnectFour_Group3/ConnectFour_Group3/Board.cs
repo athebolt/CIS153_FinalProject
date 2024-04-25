@@ -23,6 +23,7 @@ namespace ConnectFour_Group3
         //for checkWin
         private bool boardChanged = false;
         private int winner = -2;
+        private List<Cell> winningCells = new List<Cell>();
 
         #region Constructors
 
@@ -178,13 +179,9 @@ namespace ConnectFour_Group3
             }
         }
 
-        //only checks the last placed piece if it makes a win (rather than every cell)
+        //only checks the last placed piece if it makes a win (rather than the entire board)
         public int checkWinV2(int col)
         {
-            //a fail safe in case if the ai somehow didnt make a move
-            if (col == -2)
-                return -2;
-
             if(boardChanged)
             {
                 boardChanged = false;
@@ -200,10 +197,16 @@ namespace ConnectFour_Group3
                 {
                     if (!board[row, col].isEmpty())
                     {
-                        int horizontal = 1;
-                        int vertical = 1;
-                        int forwardDiag = 1;
-                        int backDiag = 1;
+                        //stores winning cells
+                        List<Cell> horiz = new List<Cell>();
+                        List<Cell> vert = new List<Cell>();
+                        List<Cell> fDiag = new List<Cell>();
+                        List<Cell> bDiag = new List<Cell>();
+
+                        horiz.Add(board[row, col]);
+                        vert.Add(board[row, col]);
+                        fDiag.Add(board[row, col]);
+                        bDiag.Add(board[row, col]);
 
                         //determines if we can go in a direction
                         bool left;
@@ -216,7 +219,7 @@ namespace ConnectFour_Group3
                         bool rightUp;
                         bool rightDown;
 
-                        //makes sure that all the pieces are touching (idk how else to explain)
+                        //makes sure that all the matching pieces are touching (idk how else to explain)
                         bool leftRow = true;
                         bool rightRow = true;
                         bool upRow = true;
@@ -240,52 +243,45 @@ namespace ConnectFour_Group3
                             rightUp = right && up;
                             rightDown = right && down;
 
-                            //Console.WriteLine("leftUp: " + leftUp);
-                            //Console.WriteLine("rightUp: " +  rightUp);
-                            //Console.WriteLine("leftDown: " + leftDown);
-                            //Console.WriteLine("rightDown:" + rightDown);
-                            //Console.WriteLine();
-                            //Console.WriteLine();
-
                             //checking in each direction to see if it matches the placed piece
                             if (left && board[row, col].getVal() == board[row, col - i].getVal() && leftRow)
-                                horizontal++;
+                                horiz.Add(board[row, col - i]);
                             else
                                 leftRow = false;
 
                             if (right && board[row, col].getVal() == board[row, col + i].getVal() && rightRow)
-                                horizontal++;
+                                horiz.Add(board[row, col + i]);
                             else
                                 rightRow = false;
 
                             if (down && board[row, col].getVal() == board[row + i, col].getVal() && downRow)
-                                vertical++;
+                                vert.Add(board[row + i, col]);
                             else
                                 downRow = false;
 
                             if (up && board[row, col].getVal() == board[row - i, col].getVal() && upRow)
-                                vertical++;
+                                vert.Add(board[row - i, col]);
                             else
                                 upRow = false;
 
                             //diagonal checks
                             if (leftUp && board[row, col].getVal() == board[row - i, col - i].getVal() && leftUpRow)
-                                backDiag++;
+                                bDiag.Add(board[row - i, col - i]);
                             else
                                 leftUpRow = false;
 
                             if (rightUp && board[row, col].getVal() == board[row - i, col + i].getVal() && rightUpRow)
-                                forwardDiag++;
+                                fDiag.Add(board[row - i, col + i]);
                             else
                                 rightUpRow = false;
 
                             if (leftDown && board[row, col].getVal() == board[row + i, col - i].getVal() && leftDownRow)
-                                forwardDiag++;
+                                fDiag.Add(board[row + i, col - i]);
                             else
                                 leftDownRow = false;
 
                             if (rightDown && board[row, col].getVal() == board[row + i, col + i].getVal() && rightDownRow)
-                                backDiag++;
+                                bDiag.Add(board[row + i, col + i]);
                             else
                                 rightDownRow = false;
                             
@@ -293,12 +289,30 @@ namespace ConnectFour_Group3
                                 break;
                         }
 
-                        //Console.WriteLine("horiz: " + (leftCnt + rightCnt + 1));
-                        //Console.WriteLine("vert: " + (upCnt + downCnt + 1));
-                        //Console.WriteLine("forward: " + rightUpCnt + " + " + leftDownCnt);
-                        //Console.WriteLine("backward: " + leftUpCnt + " + " + rightDownCnt);
+                        bool isWinner = false;
 
-                        if (horizontal >= 4 || vertical >= 4 || forwardDiag >= 4 || backDiag >= 4) //if there are any wins, determine winner
+                        if (horiz.Count() >= 4) //if there are any wins, determine winner and set the winning cells
+                        {
+                            winningCells = horiz;
+                            isWinner = true;
+                        }
+                        else if(vert.Count() >= 4)
+                        {
+                            winningCells = vert;
+                            isWinner = true;
+                        }
+                        else if(fDiag.Count() >= 4)
+                        {
+                            winningCells = fDiag;
+                            isWinner = true;
+                        }
+                        else if(bDiag.Count() >= 4)
+                        {
+                            winningCells = bDiag;
+                            isWinner = true;
+                        }
+
+                        if(isWinner)
                         {
                             winner = !isPlayerMove ? player1Win : player2Win;
                             return !isPlayerMove ? player1Win : player2Win;
@@ -459,6 +473,36 @@ namespace ConnectFour_Group3
             Console.WriteLine("locked");
         }
 
+        public void hoverFunctionality(ref PictureBox[,] grid, string c, bool isEnter)
+        {
+            int col = int.Parse(c);
+
+            this.grid = grid;
+
+            if(isEnter)
+            {
+                for (int i = board.GetLength(0) - 1; i >= 0; i--)
+                {
+                    if (board[i, col].isEmpty())
+                    {
+                        grid[i, col].Image = isPlayerMove ? Properties.Resources.Red_Space_Transparent : Properties.Resources.Blue_Space_Transparent;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = board.GetLength(0) - 1; i >= 0; i--)
+                {
+                    if (board[i, col].isEmpty())
+                    {
+                        grid[i, col].Image = Properties.Resources.gray;
+                        break;
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region Getters
@@ -481,6 +525,11 @@ namespace ConnectFour_Group3
         public int getCols()
         {
             return board.GetLength(1);
+        }
+
+        public List<Cell> getWinningCells()
+        {
+            return winningCells;
         }
 
         #endregion
