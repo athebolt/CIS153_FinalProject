@@ -47,18 +47,20 @@ namespace ConnectFour_Group3
                     lbl_go_whoWon.Text = "Player 1 Wins!";
                 }
 
-                lbl_go_playerWins.Font = new Font(Font, FontStyle.Bold);
+                lbl_go_playerWins.Font = new Font(lbl_go_playerWins.Font, FontStyle.Bold);
+                lbl_go_playerWins.ForeColor = Color.Green;
                 lbl_go_playerWinP.ForeColor = Color.Green;
                 lbl_go_AIWinP.ForeColor = Color.Red;
             }
             else
             {
                 if (isOnePlayer)
-                    lbl_go_whoWon.Text = "AI wins.";
+                    lbl_go_whoWon.Text = "AI Player wins";
                 else
                     lbl_go_whoWon.Text = "Player 2 Wins!";
 
                 lbl_go_AIWins.Font = new Font(lbl_go_AIWins.Font, FontStyle.Bold);
+                lbl_go_AIWins.ForeColor = Color.Green;
                 lbl_go_playerWinP.ForeColor = Color.Red;
                 lbl_go_AIWinP.ForeColor = Color.Green;
             }

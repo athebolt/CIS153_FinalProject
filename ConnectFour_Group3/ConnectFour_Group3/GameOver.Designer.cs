@@ -56,11 +56,11 @@
             this.lbl_go_whoWon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_go_whoWon.AutoSize = true;
             this.lbl_go_whoWon.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_go_whoWon.Location = new System.Drawing.Point(313, 108);
+            this.lbl_go_whoWon.Location = new System.Drawing.Point(301, 108);
             this.lbl_go_whoWon.Name = "lbl_go_whoWon";
-            this.lbl_go_whoWon.Size = new System.Drawing.Size(174, 31);
+            this.lbl_go_whoWon.Size = new System.Drawing.Size(199, 31);
             this.lbl_go_whoWon.TabIndex = 1;
-            this.lbl_go_whoWon.Text = "[player] wins!";
+            this.lbl_go_whoWon.Text = "AI Player Wins.";
             this.lbl_go_whoWon.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btn_go_playAgain

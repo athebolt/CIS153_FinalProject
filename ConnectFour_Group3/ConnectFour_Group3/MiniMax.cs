@@ -34,12 +34,6 @@ namespace ConnectFour_Group3
                 {
                     score = miniMax(copy, depth, false, c); //run algorithm
 
-                    Console.WriteLine(score);
-
-                    copy.displayBoardToConsole();
-
-                    Console.WriteLine();
-
                     copy.removeCell(c); //remove the move
 
                     //keeps track of the best possible place to place a piece
@@ -58,22 +52,21 @@ namespace ConnectFour_Group3
                 }
             }
 
-            Console.WriteLine("===============================");
-
-            //make a move on the actual board
+            //make one of the best moves, if not the best move, on the board (best can vary based on its depth scope)
             if (bestMoves.Count > 0)
             {
                 int col = bestMoves[random.Next(0, bestMoves.Count)];
                 board.makeMove(col);
                 return col;
             }
-            else
+            else //this will be called if the AI will lose no matter where it places a piece
             {
                 for (int i = 0; i < board.getCols(); i++)
                     if (board.makeMove(i))
                         return i;
             }
 
+            //this is if the AI cannot make a move on the board and it is called for some reason (should never happen)
             return -2;
         }
 
