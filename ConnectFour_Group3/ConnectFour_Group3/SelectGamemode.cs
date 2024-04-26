@@ -55,8 +55,11 @@ namespace ConnectFour_Group3
         {
             this.StartPosition = FormStartPosition.Manual;
 
-            this.Top = 500;
-            this.Left = 1100;
+            int screenW = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2;
+            int screenH = (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
+
+            this.Top = screenH;
+            this.Left = screenW;
         }
     }
 }
