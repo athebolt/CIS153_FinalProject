@@ -30,8 +30,8 @@ namespace ConnectFour_Group3
 
             ctrPlayerWins.Text = gameStats.playerWins.ToString();
             ctrAIWins.Text = gameStats.secondPlayerWins.ToString();
-            ctrPlayerWinPer.Text = gameStats.playerWinPct.ToString();
-            ctrAIWinPer.Text = gameStats.secondPlayerWinPct.ToString();
+            ctrPlayerWinPer.Text = gameStats.playerWinPct.ToString("0.00") + "%";
+            ctrAIWinPer.Text = gameStats.secondPlayerWinPct.ToString("0.00") + "%";
             ctrTotalGames.Text = gameStats.totalGames.ToString();
             ctrTies.Text = gameStats.ties.ToString();
         }
@@ -55,6 +55,12 @@ namespace ConnectFour_Group3
 
             this.Top = screenH;
             this.Left = screenW;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // remove this if moore says we don't need it anymore, I find it cleaner to just not have it personally.
+            Application.Exit();
         }
     }
 }

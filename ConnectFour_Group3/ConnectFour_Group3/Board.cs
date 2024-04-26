@@ -503,6 +503,14 @@ namespace ConnectFour_Group3
             }
         }
 
+        public void highlightWinningSequence()
+        {
+            foreach (var cell in winningCells)
+            {            
+                grid[cell.getXPos(), cell.getYPos()].Image = Properties.Resources.dark_orange;
+            }
+        }
+
         #endregion
 
         #region Getters

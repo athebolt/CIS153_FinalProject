@@ -41,13 +41,17 @@
             this.ctrTotalGames = new System.Windows.Forms.Label();
             this.ctrTies = new System.Windows.Forms.Label();
             this.lblTies = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPlayerWins
             // 
             this.lblPlayerWins.AutoSize = true;
             this.lblPlayerWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerWins.Location = new System.Drawing.Point(134, 87);
+            this.lblPlayerWins.Location = new System.Drawing.Point(184, 243);
             this.lblPlayerWins.Name = "lblPlayerWins";
             this.lblPlayerWins.Size = new System.Drawing.Size(195, 36);
             this.lblPlayerWins.TabIndex = 0;
@@ -56,10 +60,11 @@
             // lblPlayerwinper
             // 
             this.lblPlayerwinper.AutoSize = true;
-            this.lblPlayerwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerwinper.Location = new System.Drawing.Point(134, 226);
+            this.lblPlayerwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerwinper.ForeColor = System.Drawing.Color.Red;
+            this.lblPlayerwinper.Location = new System.Drawing.Point(184, 379);
             this.lblPlayerwinper.Name = "lblPlayerwinper";
-            this.lblPlayerwinper.Size = new System.Drawing.Size(216, 36);
+            this.lblPlayerwinper.Size = new System.Drawing.Size(230, 37);
             this.lblPlayerwinper.TabIndex = 1;
             this.lblPlayerwinper.Text = "Player Win %:";
             // 
@@ -67,27 +72,28 @@
             // 
             this.lblAIwins.AutoSize = true;
             this.lblAIwins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAIwins.Location = new System.Drawing.Point(775, 90);
+            this.lblAIwins.Location = new System.Drawing.Point(846, 246);
             this.lblAIwins.Name = "lblAIwins";
-            this.lblAIwins.Size = new System.Drawing.Size(222, 36);
+            this.lblAIwins.Size = new System.Drawing.Size(136, 36);
             this.lblAIwins.TabIndex = 2;
-            this.lblAIwins.Text = "Player 2 Wins:";
+            this.lblAIwins.Text = "AI Wins:";
             // 
             // lblAIwinper
             // 
             this.lblAIwinper.AutoSize = true;
-            this.lblAIwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAIwinper.Location = new System.Drawing.Point(775, 228);
+            this.lblAIwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAIwinper.ForeColor = System.Drawing.Color.Green;
+            this.lblAIwinper.Location = new System.Drawing.Point(846, 381);
             this.lblAIwinper.Name = "lblAIwinper";
-            this.lblAIwinper.Size = new System.Drawing.Size(243, 36);
+            this.lblAIwinper.Size = new System.Drawing.Size(167, 37);
             this.lblAIwinper.TabIndex = 3;
-            this.lblAIwinper.Text = "Player 2 Win %:";
+            this.lblAIwinper.Text = "AI Win %:";
             // 
             // ctrPlayerWins
             // 
             this.ctrPlayerWins.AutoSize = true;
             this.ctrPlayerWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWins.Location = new System.Drawing.Point(361, 88);
+            this.ctrPlayerWins.Location = new System.Drawing.Point(385, 243);
             this.ctrPlayerWins.Name = "ctrPlayerWins";
             this.ctrPlayerWins.Size = new System.Drawing.Size(32, 36);
             this.ctrPlayerWins.TabIndex = 4;
@@ -96,10 +102,11 @@
             // ctrPlayerWinPer
             // 
             this.ctrPlayerWinPer.AutoSize = true;
-            this.ctrPlayerWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWinPer.Location = new System.Drawing.Point(360, 228);
+            this.ctrPlayerWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrPlayerWinPer.ForeColor = System.Drawing.Color.Red;
+            this.ctrPlayerWinPer.Location = new System.Drawing.Point(407, 380);
             this.ctrPlayerWinPer.Name = "ctrPlayerWinPer";
-            this.ctrPlayerWinPer.Size = new System.Drawing.Size(32, 36);
+            this.ctrPlayerWinPer.Size = new System.Drawing.Size(36, 37);
             this.ctrPlayerWinPer.TabIndex = 5;
             this.ctrPlayerWinPer.Text = "0";
             // 
@@ -107,7 +114,7 @@
             // 
             this.ctrAIWins.AutoSize = true;
             this.ctrAIWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWins.Location = new System.Drawing.Point(1024, 90);
+            this.ctrAIWins.Location = new System.Drawing.Point(988, 246);
             this.ctrAIWins.Name = "ctrAIWins";
             this.ctrAIWins.Size = new System.Drawing.Size(32, 36);
             this.ctrAIWins.TabIndex = 6;
@@ -116,17 +123,18 @@
             // ctrAIWinPer
             // 
             this.ctrAIWinPer.AutoSize = true;
-            this.ctrAIWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWinPer.Location = new System.Drawing.Point(1024, 228);
+            this.ctrAIWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrAIWinPer.ForeColor = System.Drawing.Color.Green;
+            this.ctrAIWinPer.Location = new System.Drawing.Point(1005, 382);
             this.ctrAIWinPer.Name = "ctrAIWinPer";
-            this.ctrAIWinPer.Size = new System.Drawing.Size(32, 36);
+            this.ctrAIWinPer.Size = new System.Drawing.Size(36, 37);
             this.ctrAIWinPer.TabIndex = 7;
             this.ctrAIWinPer.Text = "0";
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1229, 745);
+            this.button3.Location = new System.Drawing.Point(1080, 559);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 48);
             this.button3.TabIndex = 8;
@@ -138,7 +146,7 @@
             // 
             this.lblTotalGames.AutoSize = true;
             this.lblTotalGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGames.Location = new System.Drawing.Point(269, 363);
+            this.lblTotalGames.Location = new System.Drawing.Point(518, 243);
             this.lblTotalGames.Name = "lblTotalGames";
             this.lblTotalGames.Size = new System.Drawing.Size(211, 36);
             this.lblTotalGames.TabIndex = 9;
@@ -148,7 +156,7 @@
             // 
             this.ctrTotalGames.AutoSize = true;
             this.ctrTotalGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrTotalGames.Location = new System.Drawing.Point(485, 364);
+            this.ctrTotalGames.Location = new System.Drawing.Point(734, 244);
             this.ctrTotalGames.Name = "ctrTotalGames";
             this.ctrTotalGames.Size = new System.Drawing.Size(32, 36);
             this.ctrTotalGames.TabIndex = 10;
@@ -158,7 +166,7 @@
             // 
             this.ctrTies.AutoSize = true;
             this.ctrTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrTies.Location = new System.Drawing.Point(779, 365);
+            this.ctrTies.Location = new System.Drawing.Point(665, 382);
             this.ctrTies.Name = "ctrTies";
             this.ctrTies.Size = new System.Drawing.Size(32, 36);
             this.ctrTies.TabIndex = 12;
@@ -168,18 +176,63 @@
             // 
             this.lblTies.AutoSize = true;
             this.lblTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTies.Location = new System.Drawing.Point(680, 364);
+            this.lblTies.Location = new System.Drawing.Point(566, 381);
             this.lblTies.Name = "lblTies";
             this.lblTies.Size = new System.Drawing.Size(93, 36);
             this.lblTies.TabIndex = 11;
             this.lblTies.Text = "Ties :";
             // 
+            // exitButton
+            // 
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(12, 559);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(180, 48);
+            this.exitButton.TabIndex = 13;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label1.Location = new System.Drawing.Point(443, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(384, 63);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "GAME STATS";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(571, 379);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 36);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Ties :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(670, 380);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 36);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "0";
+            // 
             // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1462, 830);
+            this.ClientSize = new System.Drawing.Size(1283, 628);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.ctrTies);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTies);
             this.Controls.Add(this.ctrTotalGames);
             this.Controls.Add(this.lblTotalGames);
@@ -215,5 +268,9 @@
         private System.Windows.Forms.Label ctrTotalGames;
         private System.Windows.Forms.Label ctrTies;
         private System.Windows.Forms.Label lblTies;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

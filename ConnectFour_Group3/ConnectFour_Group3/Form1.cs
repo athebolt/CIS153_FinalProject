@@ -116,9 +116,10 @@ namespace ConnectFour_Group3
         {
             if (connectFourBoard.checkWinV2(col) != -2)
             {
-                int winner = connectFourBoard.checkWinV2(col);
+                int winner = connectFourBoard.checkWinV2(col);                
+                connectFourBoard.highlightWinningSequence();
 
-                if(gamemode == 0)
+                if (gamemode == 0)
                     gameData.updateStats(winner);
 
                 connectFourBoard.lockBoard();
