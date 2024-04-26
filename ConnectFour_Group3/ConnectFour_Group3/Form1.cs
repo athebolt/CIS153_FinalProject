@@ -156,14 +156,14 @@ namespace ConnectFour_Group3
 
         private void btn_MouseHover(object sender, EventArgs e)
         {
-            //Console.WriteLine("Hovering over btn: " + (string)((Button)sender).Tag);
-
-            connectFourBoard.hoverFunctionality(ref grid, (string)((Button)sender).Tag, true);
+            if (!connectFourBoard.isGameOver())
+                connectFourBoard.hoverFunctionality(ref grid, (string)((Button)sender).Tag, true);
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            connectFourBoard.hoverFunctionality(ref grid, (string)((Button)sender).Tag, false);
+            if (!connectFourBoard.isGameOver())
+                connectFourBoard.hoverFunctionality(ref grid, (string)((Button)sender).Tag, false);
         }
     }
 }
