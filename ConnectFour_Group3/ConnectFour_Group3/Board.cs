@@ -370,17 +370,17 @@ namespace ConnectFour_Group3
                 {
                     if (board[i,j].getVal() == ' ')
                     {
-                        grid[i, j].Image = Properties.Resources.gray;
+                        grid[i, j].Image = Properties.Resources.Blank_space;
                         continue;
                     }
                     if (board[i, j].getVal() == 'X')
                     {
-                        grid[i, j].Image = Properties.Resources.red;
+                        grid[i, j].Image = Properties.Resources.Red_Space;
                         continue;
                     }
                     if (board[i, j].getVal() == 'O')
                     {
-                        grid[i, j].Image = Properties.Resources.blue;
+                        grid[i, j].Image = Properties.Resources.Blue_Space;
                         continue;
                     }
                 }
@@ -398,17 +398,17 @@ namespace ConnectFour_Group3
                 {
                     if (board[i, j].getVal() == ' ')
                     {
-                        grid[i, j].Image = Properties.Resources.gray;
+                        grid[i, j].Image = Properties.Resources.Blank_space;
                         continue;
                     }
                     if (board[i, j].getVal() == 'X')
                     {
-                        grid[i, j].Image = Properties.Resources.red;
+                        grid[i, j].Image = Properties.Resources.Red_Space;
                         continue;
                     }
                     if (board[i, j].getVal() == 'O')
                     {
-                        grid[i, j].Image = Properties.Resources.blue;
+                        grid[i, j].Image = Properties.Resources.Blue_Space;
                         continue;
                     }
                 }
@@ -496,7 +496,7 @@ namespace ConnectFour_Group3
                 {
                     if (board[i, col].isEmpty())
                     {
-                        grid[i, col].Image = Properties.Resources.gray;
+                        grid[i, col].Image = Properties.Resources.Blank_space;
                         break;
                     }
                 }
@@ -507,7 +507,7 @@ namespace ConnectFour_Group3
         {
             foreach (var cell in winningCells)
             {            
-                grid[cell.getXPos(), cell.getYPos()].Image = Properties.Resources.dark_orange;
+                grid[cell.getXPos(), cell.getYPos()].Image = Properties.Resources.Orange_Space;
             }
         }
 

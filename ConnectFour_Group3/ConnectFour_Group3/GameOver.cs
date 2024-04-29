@@ -18,7 +18,7 @@ namespace ConnectFour_Group3
         private Form1 form1;
         private int winner;
         private bool isOnePlayer;
-        private bool playAgain;
+        private bool closeApp;
 
         public GameOver(TitlePage tp, Form1 f1, int w, bool iop)
         {
@@ -28,7 +28,7 @@ namespace ConnectFour_Group3
             form1 = f1;
             winner = w;
             isOnePlayer = iop;
-            playAgain = false;
+            closeApp = true;
 
             setFormLocation();
 
@@ -71,30 +71,32 @@ namespace ConnectFour_Group3
 
         private void btn_go_playAgain_Click(object sender, EventArgs e)
         {
+            form1.closeForm();
             form1 = new Form1(titlePage, isOnePlayer ? 0 : 1);
             form1.Show();
-            playAgain = true;
+            closeApp = false;
             this.Close();
         }
 
         private void btn_go_review_Click(object sender, EventArgs e)
         {
+            form1.switchToReview();
             form1.Show();
-
-            btn_go_review.Enabled = false;
+            this.Hide();
         }
 
         private void btn_go_exit_Click(object sender, EventArgs e)
         {
             titlePage.Show();
             form1.Close();
+            closeApp = false;
             this.Close();
         }
 
         private void GameOver_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!playAgain)
-                titlePage.Show();
+            if (closeApp)
+                titlePage.Close();
         }
 
         private void showStats()

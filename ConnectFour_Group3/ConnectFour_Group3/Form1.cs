@@ -25,7 +25,13 @@ namespace ConnectFour_Group3
         //This is an array of all of the buttons (or whatever object we use to display the board, we can change this)
         private PictureBox[,] grid;
 
-        private bool isPlayer2Turn = false;     
+        private bool isPlayer2Turn = false;
+
+        //Used for knowing if the form closing is due to the X button being pressed or not
+        private bool closeApp = true;
+
+        private bool inReview = false;
+        private GameOver gameOver = null;
 
 
 
@@ -124,25 +130,54 @@ namespace ConnectFour_Group3
 
                 connectFourBoard.lockBoard();
 
-                btn_Back.Enabled = false;
-
-                GameOver gameOver = new GameOver(titlePage, this, winner, gamemode == 0);
-                gameOver.Show();
+                GameOver gm = new GameOver(titlePage, this, winner, gamemode == 0);
+                gameOver = gm;
+                gm.Show();
                 this.Hide();
             }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(!connectFourBoard.isGameOver())
-                titlePage.Show();
+            if(closeApp)
+                titlePage.Close();
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            titlePage.Show();
+            if (inReview)
+            {
+                gameOver.Show();
+                this.Hide();
+            }
+            else
+            {
+                titlePage.Show();
+                closeApp = false;
+                this.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// Close the form from an external source without closing the entire program
+        /// </summary>
+        public void closeForm()
+        {
+            closeApp = false;
             this.Close();
         }
+
+        /// <summary>
+        /// Switches the the button and turn display to suit the review view, and allows the button to lead to the game over screen.
+        /// </summary>
+        public void switchToReview()
+        {
+            btn_Back.Text = "Return to Game Over";
+            lblTurnDisp.Text = "Game Review";
+            inReview = true;
+        }
+
         private void setFormLocation()
         {
             this.StartPosition = FormStartPosition.Manual;

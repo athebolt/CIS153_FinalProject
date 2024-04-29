@@ -132,6 +132,7 @@
   <ItemGroup>
     <Content Include="GameData\SaveData.txt" />
     <Content Include="Resources\dark orange.png" />
+    <None Include="Resources\Orange Space.png" />
     <None Include="Resources\Red Space.png" />
     <None Include="Resources\Red Space Transparent.png" />
     <None Include="Resources\Blue Space.png" />

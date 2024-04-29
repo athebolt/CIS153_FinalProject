@@ -15,6 +15,7 @@ namespace ConnectFour_Group3
     {
         private GameStats gameStats;
         private TitlePage titlePage;
+        private bool closeApp = true;
 
         public Stats(TitlePage tp)
         {
@@ -38,12 +39,14 @@ namespace ConnectFour_Group3
 
         private void Stats_FormClosed(object sender, FormClosedEventArgs e)
         {
-            titlePage.Show();
+            if (closeApp)
+                titlePage.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             titlePage.Show();
+            closeApp = false;
             this.Close();
         }
         private void setFormLocation()
@@ -55,12 +58,6 @@ namespace ConnectFour_Group3
 
             this.Top = screenH;
             this.Left = screenW;
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            // remove this if moore says we don't need it anymore, I find it cleaner to just not have it personally.
-            Application.Exit();
         }
     }
 }

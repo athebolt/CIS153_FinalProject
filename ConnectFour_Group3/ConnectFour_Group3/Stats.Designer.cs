@@ -41,7 +41,6 @@
             this.ctrTotalGames = new System.Windows.Forms.Label();
             this.ctrTies = new System.Windows.Forms.Label();
             this.lblTies = new System.Windows.Forms.Label();
-            this.exitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -134,7 +133,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1080, 559);
+            this.button3.Location = new System.Drawing.Point(12, 568);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 48);
             this.button3.TabIndex = 8;
@@ -182,17 +181,6 @@
             this.lblTies.TabIndex = 11;
             this.lblTies.Text = "Ties :";
             // 
-            // exitButton
-            // 
-            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(12, 559);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(180, 48);
-            this.exitButton.TabIndex = 13;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -229,7 +217,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 628);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ctrTies);
             this.Controls.Add(this.label2);
@@ -268,7 +255,6 @@
         private System.Windows.Forms.Label ctrTotalGames;
         private System.Windows.Forms.Label ctrTies;
         private System.Windows.Forms.Label lblTies;
-        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
