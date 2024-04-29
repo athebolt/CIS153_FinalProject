@@ -77,7 +77,7 @@ namespace ConnectFour_Group3
             {
 
                 //Make the player's move
-                string tag = (string)((Button)sender).Tag;                
+                string tag = (string)((PictureBox)sender).Tag;                
 
                 if (connectFourBoard.makeMove(int.Parse(tag)))
                 {
@@ -157,13 +157,13 @@ namespace ConnectFour_Group3
         private void btn_MouseHover(object sender, EventArgs e)
         {
             if (!connectFourBoard.isGameOver())
-                connectFourBoard.hoverFunctionality(ref grid, (string)((Button)sender).Tag, true);
+                connectFourBoard.hoverFunctionality(ref grid, (string)((PictureBox)sender).Tag, true);
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
             if (!connectFourBoard.isGameOver())
-                connectFourBoard.hoverFunctionality(ref grid, (string)((Button)sender).Tag, false);
+                connectFourBoard.hoverFunctionality(ref grid, (string)((PictureBox)sender).Tag, false);
         }
     }
 }
