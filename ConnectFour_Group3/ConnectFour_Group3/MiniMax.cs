@@ -36,7 +36,7 @@ namespace ConnectFour_Group3
 
                     copy.removeCell(c); //remove the move
 
-                    //keeps track of the best possible place to place a piece
+                    //keeps track of the best possible place to place a piece. instead of keeping the first best move, i keep all the scores with the highest score (that way i can randomly pick one).
                     if (score == bestScore)
                     {
                         bestMoves.Add(c);
@@ -74,15 +74,18 @@ namespace ConnectFour_Group3
         {
             int whoWon = copy.checkWinV2(col);
 
+            //if there is a win, then we return the score of that win (using the depth). The sooner the move, the higher the depth.
             if (whoWon == -1)
                 return depth;
 
             else if (whoWon == 1)
                 return -depth;
 
+            //if we run out of depth or there is a tie, then return a tie.
             else if (whoWon == 0 || depth <= 0)
                 return 0;
-
+            
+            //start with a best score that is the lowest possible (if were maximizing for example, the lowest score we can get is a tie which is 0, so i set the starting value as -1)
             int bestScore = isMax ? -1 : 1;
             int score;
 
@@ -90,14 +93,15 @@ namespace ConnectFour_Group3
             {
                 if (copy.makeMove(c)) //make a move
                 {
-                    score = miniMax(copy, depth - 1, !isMax, c); //run alg to go deeper one move, pass board, subtract one move, flip player
+                    score = miniMax(copy, depth - 1, !isMax, c); //run alg to go deeper one move, pass board, flip player, and pass the column placed (for check win)
 
-                    bestScore = isMax ? Math.Max(bestScore, score) : Math.Min(bestScore, score); //new best score? store it
+                    bestScore = isMax ? Math.Max(bestScore, score) : Math.Min(bestScore, score); //using Math to determine which value is higher (or lower for Min), isMax determines which one we use.
 
-                    copy.removeCell(c); //remove said move
+                    copy.removeCell(c); //remove the move
                 }
             }
 
+            //return the best score (or worst if minimizing)
             return bestScore;
         }
     }

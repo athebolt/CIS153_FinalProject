@@ -35,6 +35,7 @@ namespace ConnectFour_Group3
             if (w == 0)
             {
                 lbl_go_whoWon.Text = "It's a tie.";
+                lbl_go_ties.Font = new Font(lbl_go_ties.Font, FontStyle.Bold);
             }
             else if (w == 1)
             {
