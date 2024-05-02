@@ -375,12 +375,12 @@ namespace ConnectFour_Group3
                     }
                     if (board[i, j].getVal() == 'X')
                     {
-                        grid[i, j].Image = Properties.Resources.Red_Space;
+                        grid[i, j].Image = Properties.Resources.Blue_Space;
                         continue;
                     }
                     if (board[i, j].getVal() == 'O')
                     {
-                        grid[i, j].Image = Properties.Resources.Blue_Space;
+                        grid[i, j].Image = Properties.Resources.Red_Space;
                         continue;
                     }
                 }
@@ -403,12 +403,12 @@ namespace ConnectFour_Group3
                     }
                     if (board[i, j].getVal() == 'X')
                     {
-                        grid[i, j].Image = Properties.Resources.Red_Space;
+                        grid[i, j].Image = Properties.Resources.Blue_Space;
                         continue;
                     }
                     if (board[i, j].getVal() == 'O')
                     {
-                        grid[i, j].Image = Properties.Resources.Blue_Space;
+                        grid[i, j].Image = Properties.Resources.Red_Space;
                         continue;
                     }
                 }
@@ -485,7 +485,7 @@ namespace ConnectFour_Group3
                 {
                     if (board[i, col].isEmpty())
                     {
-                        grid[i, col].Image = isPlayerMove ? Properties.Resources.Red_Space_Transparent : Properties.Resources.Blue_Space_Transparent;
+                        grid[i, col].Image = isPlayerMove ? Properties.Resources.Blue_Space_Transparent : Properties.Resources.Red_Space_Transparent;
                         break;
                     }
                 }
