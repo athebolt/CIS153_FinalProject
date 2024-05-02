@@ -100,7 +100,7 @@
             // 
             this.lbl_go_playerWins.AutoSize = true;
             this.lbl_go_playerWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_go_playerWins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.lbl_go_playerWins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(147)))), ((int)(((byte)(202)))));
             this.lbl_go_playerWins.Location = new System.Drawing.Point(41, 214);
             this.lbl_go_playerWins.Name = "lbl_go_playerWins";
             this.lbl_go_playerWins.Size = new System.Drawing.Size(114, 24);
@@ -113,7 +113,7 @@
             // 
             this.lbl_go_AIWins.AutoSize = true;
             this.lbl_go_AIWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_go_AIWins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(147)))), ((int)(((byte)(202)))));
+            this.lbl_go_AIWins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.lbl_go_AIWins.Location = new System.Drawing.Point(545, 214);
             this.lbl_go_AIWins.Name = "lbl_go_AIWins";
             this.lbl_go_AIWins.Size = new System.Drawing.Size(79, 24);
@@ -126,7 +126,7 @@
             // 
             this.lbl_go_playerWinP.AutoSize = true;
             this.lbl_go_playerWinP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_go_playerWinP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.lbl_go_playerWinP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(147)))), ((int)(((byte)(202)))));
             this.lbl_go_playerWinP.Location = new System.Drawing.Point(41, 283);
             this.lbl_go_playerWinP.Name = "lbl_go_playerWinP";
             this.lbl_go_playerWinP.Size = new System.Drawing.Size(190, 24);
@@ -139,7 +139,7 @@
             // 
             this.lbl_go_AIWinP.AutoSize = true;
             this.lbl_go_AIWinP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_go_AIWinP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(147)))), ((int)(((byte)(202)))));
+            this.lbl_go_AIWinP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.lbl_go_AIWinP.Location = new System.Drawing.Point(545, 283);
             this.lbl_go_AIWinP.Name = "lbl_go_AIWinP";
             this.lbl_go_AIWinP.Size = new System.Drawing.Size(155, 24);
