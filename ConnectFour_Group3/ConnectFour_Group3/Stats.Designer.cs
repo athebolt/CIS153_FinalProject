@@ -99,7 +99,7 @@
             // 
             this.ctrPlayerWins.AutoSize = true;
             this.ctrPlayerWins.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWins.ForeColor = System.Drawing.Color.Green;
+            this.ctrPlayerWins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ctrPlayerWins.Location = new System.Drawing.Point(410, 293);
             this.ctrPlayerWins.Name = "ctrPlayerWins";
             this.ctrPlayerWins.Size = new System.Drawing.Size(29, 32);
@@ -111,7 +111,7 @@
             // 
             this.ctrPlayerWinPer.AutoSize = true;
             this.ctrPlayerWinPer.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWinPer.ForeColor = System.Drawing.Color.Green;
+            this.ctrPlayerWinPer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ctrPlayerWinPer.Location = new System.Drawing.Point(340, 424);
             this.ctrPlayerWinPer.Name = "ctrPlayerWinPer";
             this.ctrPlayerWinPer.Size = new System.Drawing.Size(29, 32);
@@ -122,7 +122,7 @@
             // 
             this.ctrAIWins.AutoSize = true;
             this.ctrAIWins.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWins.ForeColor = System.Drawing.Color.Firebrick;
+            this.ctrAIWins.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(147)))), ((int)(((byte)(202)))));
             this.ctrAIWins.Location = new System.Drawing.Point(984, 294);
             this.ctrAIWins.Name = "ctrAIWins";
             this.ctrAIWins.Size = new System.Drawing.Size(29, 32);
@@ -133,7 +133,7 @@
             // 
             this.ctrAIWinPer.AutoSize = true;
             this.ctrAIWinPer.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWinPer.ForeColor = System.Drawing.Color.Firebrick;
+            this.ctrAIWinPer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(147)))), ((int)(((byte)(202)))));
             this.ctrAIWinPer.Location = new System.Drawing.Point(1046, 427);
             this.ctrAIWinPer.Name = "ctrAIWinPer";
             this.ctrAIWinPer.Size = new System.Drawing.Size(29, 32);
