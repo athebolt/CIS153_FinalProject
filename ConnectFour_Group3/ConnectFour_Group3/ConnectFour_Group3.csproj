@@ -132,6 +132,8 @@
   <ItemGroup>
     <Content Include="GameData\SaveData.txt" />
     <Content Include="Resources\dark orange.png" />
+    <None Include="Resources\side design flipped.png" />
+    <None Include="Resources\side design 1.png" />
     <None Include="Resources\Game-Stats-logo.png" />
     <None Include="Resources\Orange Space.png" />
     <None Include="Resources\Red Space.png" />
