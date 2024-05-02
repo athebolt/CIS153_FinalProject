@@ -41,92 +41,102 @@
             this.ctrTotalGames = new System.Windows.Forms.Label();
             this.ctrTies = new System.Windows.Forms.Label();
             this.lblTies = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPlayerWins
             // 
             this.lblPlayerWins.AutoSize = true;
-            this.lblPlayerWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerWins.Location = new System.Drawing.Point(184, 243);
+            this.lblPlayerWins.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerWins.Location = new System.Drawing.Point(229, 289);
             this.lblPlayerWins.Name = "lblPlayerWins";
-            this.lblPlayerWins.Size = new System.Drawing.Size(195, 36);
+            this.lblPlayerWins.Size = new System.Drawing.Size(180, 33);
             this.lblPlayerWins.TabIndex = 0;
             this.lblPlayerWins.Text = "Player Wins:";
             // 
             // lblPlayerwinper
             // 
             this.lblPlayerwinper.AutoSize = true;
-            this.lblPlayerwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerwinper.ForeColor = System.Drawing.Color.Red;
-            this.lblPlayerwinper.Location = new System.Drawing.Point(184, 379);
+            this.lblPlayerwinper.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerwinper.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPlayerwinper.Location = new System.Drawing.Point(141, 421);
             this.lblPlayerwinper.Name = "lblPlayerwinper";
-            this.lblPlayerwinper.Size = new System.Drawing.Size(230, 37);
+            this.lblPlayerwinper.Size = new System.Drawing.Size(199, 33);
             this.lblPlayerwinper.TabIndex = 1;
             this.lblPlayerwinper.Text = "Player Win %:";
             // 
             // lblAIwins
             // 
             this.lblAIwins.AutoSize = true;
-            this.lblAIwins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAIwins.Location = new System.Drawing.Point(846, 246);
+            this.lblAIwins.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAIwins.Location = new System.Drawing.Point(853, 291);
             this.lblAIwins.Name = "lblAIwins";
-            this.lblAIwins.Size = new System.Drawing.Size(136, 36);
+            this.lblAIwins.Size = new System.Drawing.Size(125, 33);
             this.lblAIwins.TabIndex = 2;
             this.lblAIwins.Text = "AI Wins:";
             // 
             // lblAIwinper
             // 
             this.lblAIwinper.AutoSize = true;
-            this.lblAIwinper.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAIwinper.ForeColor = System.Drawing.Color.Green;
-            this.lblAIwinper.Location = new System.Drawing.Point(846, 381);
+            this.lblAIwinper.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAIwinper.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblAIwinper.Location = new System.Drawing.Point(896, 422);
             this.lblAIwinper.Name = "lblAIwinper";
-            this.lblAIwinper.Size = new System.Drawing.Size(167, 37);
+            this.lblAIwinper.Size = new System.Drawing.Size(144, 33);
             this.lblAIwinper.TabIndex = 3;
             this.lblAIwinper.Text = "AI Win %:";
             // 
             // ctrPlayerWins
             // 
             this.ctrPlayerWins.AutoSize = true;
-            this.ctrPlayerWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWins.Location = new System.Drawing.Point(385, 243);
+            this.ctrPlayerWins.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrPlayerWins.ForeColor = System.Drawing.Color.Green;
+            this.ctrPlayerWins.Location = new System.Drawing.Point(410, 293);
             this.ctrPlayerWins.Name = "ctrPlayerWins";
-            this.ctrPlayerWins.Size = new System.Drawing.Size(32, 36);
+            this.ctrPlayerWins.Size = new System.Drawing.Size(29, 32);
             this.ctrPlayerWins.TabIndex = 4;
             this.ctrPlayerWins.Text = "0";
+            this.ctrPlayerWins.Click += new System.EventHandler(this.ctrPlayerWins_Click);
             // 
             // ctrPlayerWinPer
             // 
             this.ctrPlayerWinPer.AutoSize = true;
-            this.ctrPlayerWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrPlayerWinPer.ForeColor = System.Drawing.Color.Red;
-            this.ctrPlayerWinPer.Location = new System.Drawing.Point(407, 380);
+            this.ctrPlayerWinPer.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrPlayerWinPer.ForeColor = System.Drawing.Color.Green;
+            this.ctrPlayerWinPer.Location = new System.Drawing.Point(340, 424);
             this.ctrPlayerWinPer.Name = "ctrPlayerWinPer";
-            this.ctrPlayerWinPer.Size = new System.Drawing.Size(36, 37);
+            this.ctrPlayerWinPer.Size = new System.Drawing.Size(29, 32);
             this.ctrPlayerWinPer.TabIndex = 5;
             this.ctrPlayerWinPer.Text = "0";
             // 
             // ctrAIWins
             // 
             this.ctrAIWins.AutoSize = true;
-            this.ctrAIWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWins.Location = new System.Drawing.Point(988, 246);
+            this.ctrAIWins.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrAIWins.ForeColor = System.Drawing.Color.Firebrick;
+            this.ctrAIWins.Location = new System.Drawing.Point(984, 294);
             this.ctrAIWins.Name = "ctrAIWins";
-            this.ctrAIWins.Size = new System.Drawing.Size(32, 36);
+            this.ctrAIWins.Size = new System.Drawing.Size(29, 32);
             this.ctrAIWins.TabIndex = 6;
             this.ctrAIWins.Text = "0";
             // 
             // ctrAIWinPer
             // 
             this.ctrAIWinPer.AutoSize = true;
-            this.ctrAIWinPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrAIWinPer.ForeColor = System.Drawing.Color.Green;
-            this.ctrAIWinPer.Location = new System.Drawing.Point(1005, 382);
+            this.ctrAIWinPer.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrAIWinPer.ForeColor = System.Drawing.Color.Firebrick;
+            this.ctrAIWinPer.Location = new System.Drawing.Point(1046, 427);
             this.ctrAIWinPer.Name = "ctrAIWinPer";
-            this.ctrAIWinPer.Size = new System.Drawing.Size(36, 37);
+            this.ctrAIWinPer.Size = new System.Drawing.Size(29, 32);
             this.ctrAIWinPer.TabIndex = 7;
             this.ctrAIWinPer.Text = "0";
             // 
@@ -144,20 +154,20 @@
             // lblTotalGames
             // 
             this.lblTotalGames.AutoSize = true;
-            this.lblTotalGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGames.Location = new System.Drawing.Point(518, 243);
+            this.lblTotalGames.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGames.Location = new System.Drawing.Point(525, 272);
             this.lblTotalGames.Name = "lblTotalGames";
-            this.lblTotalGames.Size = new System.Drawing.Size(211, 36);
+            this.lblTotalGames.Size = new System.Drawing.Size(197, 33);
             this.lblTotalGames.TabIndex = 9;
             this.lblTotalGames.Text = "Total Games :";
             // 
             // ctrTotalGames
             // 
             this.ctrTotalGames.AutoSize = true;
-            this.ctrTotalGames.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrTotalGames.Location = new System.Drawing.Point(734, 244);
+            this.ctrTotalGames.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrTotalGames.Location = new System.Drawing.Point(718, 276);
             this.ctrTotalGames.Name = "ctrTotalGames";
-            this.ctrTotalGames.Size = new System.Drawing.Size(32, 36);
+            this.ctrTotalGames.Size = new System.Drawing.Size(29, 32);
             this.ctrTotalGames.TabIndex = 10;
             this.ctrTotalGames.Text = "0";
             // 
@@ -165,7 +175,7 @@
             // 
             this.ctrTies.AutoSize = true;
             this.ctrTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrTies.Location = new System.Drawing.Point(665, 382);
+            this.ctrTies.Location = new System.Drawing.Point(672, 447);
             this.ctrTies.Name = "ctrTies";
             this.ctrTies.Size = new System.Drawing.Size(32, 36);
             this.ctrTies.TabIndex = 12;
@@ -175,48 +185,102 @@
             // 
             this.lblTies.AutoSize = true;
             this.lblTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTies.Location = new System.Drawing.Point(566, 381);
+            this.lblTies.Location = new System.Drawing.Point(573, 446);
             this.lblTies.Name = "lblTies";
             this.lblTies.Size = new System.Drawing.Size(93, 36);
             this.lblTies.TabIndex = 11;
             this.lblTies.Text = "Ties :";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label1.Location = new System.Drawing.Point(443, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(384, 63);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "GAME STATS";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(571, 379);
+            this.label2.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(578, 444);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 36);
+            this.label2.Size = new System.Drawing.Size(87, 33);
             this.label2.TabIndex = 11;
             this.label2.Text = "Ties :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(670, 380);
+            this.label3.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(675, 447);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 36);
+            this.label3.Size = new System.Drawing.Size(29, 32);
             this.label3.TabIndex = 12;
             this.label3.Text = "0";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ConnectFour_Group3.Properties.Resources.Game_Stats_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(333, 57);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(623, 157);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(236, 323);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(204, 2);
+            this.panel1.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(531, 308);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(221, 2);
+            this.panel2.TabIndex = 17;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Location = new System.Drawing.Point(857, 324);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(160, 2);
+            this.panel3.TabIndex = 18;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel4.Location = new System.Drawing.Point(898, 459);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(248, 2);
+            this.panel4.TabIndex = 19;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Location = new System.Drawing.Point(146, 457);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(276, 2);
+            this.panel5.TabIndex = 18;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel6.Location = new System.Drawing.Point(584, 478);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(122, 2);
+            this.panel6.TabIndex = 19;
             // 
             // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 628);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ctrTies);
             this.Controls.Add(this.label2);
@@ -235,6 +299,7 @@
             this.Name = "Stats";
             this.Text = "Stats";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Stats_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,8 +320,14 @@
         private System.Windows.Forms.Label ctrTotalGames;
         private System.Windows.Forms.Label ctrTies;
         private System.Windows.Forms.Label lblTies;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
