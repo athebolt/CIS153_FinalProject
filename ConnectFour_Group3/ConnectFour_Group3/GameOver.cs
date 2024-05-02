@@ -35,23 +35,13 @@ namespace ConnectFour_Group3
             if (w == 0)
             {
                 lbl_go_whoWon.Text = "It's a tie.";
-                lbl_go_ties.Font = new Font(lbl_go_ties.Font, FontStyle.Bold);
             }
             else if (w == 1)
             {
                 if (isOnePlayer)
-                {
-                    lbl_go_whoWon.Text = "You Win!";
-                }
+                    lbl_go_whoWon.Text = "You Win!       ";
                 else
-                {
                     lbl_go_whoWon.Text = "Player 1 Wins!";
-                }
-
-                lbl_go_playerWins.Font = new Font(lbl_go_playerWins.Font, FontStyle.Bold);
-                lbl_go_playerWins.ForeColor = Color.Green;
-                lbl_go_playerWinP.ForeColor = Color.Green;
-                lbl_go_AIWinP.ForeColor = Color.Red;
             }
             else
             {
@@ -59,11 +49,6 @@ namespace ConnectFour_Group3
                     lbl_go_whoWon.Text = "AI Player wins";
                 else
                     lbl_go_whoWon.Text = "Player 2 Wins!";
-
-                lbl_go_AIWins.Font = new Font(lbl_go_AIWins.Font, FontStyle.Bold);
-                lbl_go_AIWins.ForeColor = Color.Green;
-                lbl_go_playerWinP.ForeColor = Color.Red;
-                lbl_go_AIWinP.ForeColor = Color.Green;
             }
 
             if(isOnePlayer)
