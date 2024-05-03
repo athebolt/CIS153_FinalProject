@@ -74,7 +74,7 @@ namespace ConnectFour_Group3
         private void btn_go_exit_Click(object sender, EventArgs e)
         {
             titlePage.Show();
-            form1.Close();
+            form1.closeForm();
             closeApp = false;
             this.Close();
         }
