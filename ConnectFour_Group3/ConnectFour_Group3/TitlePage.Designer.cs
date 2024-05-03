@@ -31,7 +31,8 @@
             this.btnPlayGame = new System.Windows.Forms.Button();
             this.btnViewStats = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lbltitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPlayGame
@@ -67,29 +68,29 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // lbltitle
+            // pictureBox1
             // 
-            this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitle.Location = new System.Drawing.Point(225, 74);
-            this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(350, 64);
-            this.lbltitle.TabIndex = 3;
-            this.lbltitle.Text = "Connect Four";
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(475, 108);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // TitlePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbltitle);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnViewStats);
             this.Controls.Add(this.btnPlayGame);
             this.Name = "TitlePage";
             this.Text = "TitlePage";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -98,6 +99,6 @@
         private System.Windows.Forms.Button btnPlayGame;
         private System.Windows.Forms.Button btnViewStats;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label lbltitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -46,5 +46,10 @@ namespace ConnectFour_Group3
             this.Top = screenH;
             this.Left = screenW;
         }
+
+        private void lbltitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
