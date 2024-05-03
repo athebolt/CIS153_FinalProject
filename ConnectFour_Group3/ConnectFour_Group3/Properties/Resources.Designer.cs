@@ -83,6 +83,16 @@ namespace ConnectFour_Group3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_side_design_1 {
+            get {
+                object obj = ResourceManager.GetObject("blue side design 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blue_Space {
             get {
                 object obj = ResourceManager.GetObject("Blue Space", resourceCulture);
@@ -133,6 +143,16 @@ namespace ConnectFour_Group3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap game_stats_new {
+            get {
+                object obj = ResourceManager.GetObject("game-stats-new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gray {
             get {
                 object obj = ResourceManager.GetObject("gray", resourceCulture);
@@ -156,6 +176,16 @@ namespace ConnectFour_Group3.Properties {
         internal static System.Drawing.Bitmap red {
             get {
                 object obj = ResourceManager.GetObject("red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_side_design_1 {
+            get {
+                object obj = ResourceManager.GetObject("red side design 1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
