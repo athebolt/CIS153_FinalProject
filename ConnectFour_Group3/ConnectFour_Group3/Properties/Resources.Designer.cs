@@ -73,16 +73,6 @@ namespace ConnectFour_Group3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blue {
-            get {
-                object obj = ResourceManager.GetObject("blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap blue_side_design_1 {
             get {
                 object obj = ResourceManager.GetObject("blue side design 1", resourceCulture);
@@ -113,9 +103,9 @@ namespace ConnectFour_Group3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Connect_Four_5_2_2024 {
+        internal static System.Drawing.Bitmap Connect_Four_5_4_2024 {
             get {
-                object obj = ResourceManager.GetObject("Connect_Four_5_2_2024", resourceCulture);
+                object obj = ResourceManager.GetObject("Connect_Four_5_4_2024", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,39 +113,9 @@ namespace ConnectFour_Group3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dark_orange {
+        internal static System.Drawing.Bitmap Game_Stats_5_4_2024 {
             get {
-                object obj = ResourceManager.GetObject("dark_orange", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Game_Stats_logo {
-            get {
-                object obj = ResourceManager.GetObject("Game-Stats-logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap game_stats_new {
-            get {
-                object obj = ResourceManager.GetObject("game-stats-new", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gray {
-            get {
-                object obj = ResourceManager.GetObject("gray", resourceCulture);
+                object obj = ResourceManager.GetObject("Game_Stats_5_4_2024", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,16 +126,6 @@ namespace ConnectFour_Group3.Properties {
         internal static System.Drawing.Bitmap Orange_Space {
             get {
                 object obj = ResourceManager.GetObject("Orange Space", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap red {
-            get {
-                object obj = ResourceManager.GetObject("red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,39 +163,9 @@ namespace ConnectFour_Group3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap side_design_1 {
+        internal static System.Drawing.Bitmap Select_GameMode_5_4_2024 {
             get {
-                object obj = ResourceManager.GetObject("side design 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap side_design_flipped {
-            get {
-                object obj = ResourceManager.GetObject("side design flipped", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Start_5_2_2024 {
-            get {
-                object obj = ResourceManager.GetObject("Start-5-2-2024", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Start_5_2_20241 {
-            get {
-                object obj = ResourceManager.GetObject("Start-5-2-20241", resourceCulture);
+                object obj = ResourceManager.GetObject("Select_GameMode_5_4_2024", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -265,7 +265,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ConnectFour_Group3.Properties.Resources.game_stats_new;
+            this.pictureBox1.Image = global::ConnectFour_Group3.Properties.Resources.Game_Stats_5_4_2024;
             this.pictureBox1.Location = new System.Drawing.Point(324, 57);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(623, 157);

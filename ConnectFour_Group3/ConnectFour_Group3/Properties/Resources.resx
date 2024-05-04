@@ -118,35 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="game-stats-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\game-stats-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Start-5-2-20241" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Start-5-2-20241.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Game-Stats-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Game-Stats-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Connect_Four_5_2_2024" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Connect-Four-5-2-2024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Red Space" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Red Space.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="side design flipped" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\side design flipped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="side design 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\side design 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Blue Space" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blue Space.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Blank space" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blank space.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,14 +130,8 @@
   <data name="Blue Space Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blue Space Transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gray.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="blue side design 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blue side design 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Start-5-2-2024" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Start-5-2-2024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Red Space Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Red Space Transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,10 +139,16 @@
   <data name="Orange Space" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orange Space.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dark_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dark orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="red side design 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red side design 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Connect_Four_5_4_2024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Connect-Four-5-4-2024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Game_Stats_5_4_2024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Game-Stats-5-4-2024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Select_GameMode_5_4_2024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Select-GameMode-5-4-2024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

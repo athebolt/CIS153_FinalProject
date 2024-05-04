@@ -131,10 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameData\SaveData.txt" />
-    <None Include="Resources\red side design 1.png" />
-    <None Include="Resources\game-stats-new.png" />
+    <None Include="Resources\Game-Stats-5-4-2024.png" />
+    <None Include="Resources\Select-GameMode-5-4-2024.png" />
     <None Include="Resources\Connect-Four-5-2-2024.png" />
-    <None Include="Resources\blue side design 1.png" />
+    <None Include="Resources\Connect-Four-5-4-2024.png" />
     <Content Include="Resources\dark orange.png" />
     <None Include="Resources\Title.bmp" />
     <None Include="Resources\Start-5-2-20241.png" />
