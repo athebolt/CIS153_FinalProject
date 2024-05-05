@@ -1,5 +1,7 @@
 # CIS153_FinalProject
- 
+
+GITHUB LINK: https://github.com/athebolt/CIS153_FinalProject
+
 Connect Four
 
 How to use:
