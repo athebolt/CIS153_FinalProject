@@ -1,4 +1,10 @@
-﻿using System;
+﻿//=====================================================================
+//Names: Alexander Thebolt, Nicolaas Dykk, Tristan Mann, Nathan Gessner
+//Date : 04/01/2024
+//Desc : Connect Four Game - Group 3
+//=====================================================================
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
